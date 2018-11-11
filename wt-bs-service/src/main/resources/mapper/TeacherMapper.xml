@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="teacherMapper">
+	<resultMap id="teacherMap" type="wt.bs.domain.entity.TeacherEntity">
+	</resultMap>
+    
+    <sql id="select-all-column">
+		SELECT
+			id AS id,
+			user_id AS userId,
+			name AS name,
+			login_name AS loginName,
+			pwd AS pwd,
+			sex AS sex,
+			yn AS yn,
+			sysVersion AS sysVersion,
+			create_time AS createTime,
+			update_time AS updateTime,
+			create_user AS createUser,
+			update_user AS updateUser,
+			code AS code
+		FROM teacher
+	</sql>
+	
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=BIGINT}
+		</if>
+		<if test="name != null and name != ''">
+			and name = #{name,jdbcType=VARCHAR}
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and login_name = #{loginName,jdbcType=VARCHAR}
+		</if>
+		<if test="pwd != null and pwd != ''">
+			and pwd = #{pwd,jdbcType=VARCHAR}
+		</if>
+		<if test="sex != null">
+			and sex = #{sex,jdbcType=TINYINT}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=TINYINT}
+		</if>
+		<if test="sysVersion != null">
+			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="code != null and code != ''">
+			and code = #{code,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<select id="selectTeacher" parameterType="wt.bs.domain.criteria.TeacherCriteria" resultMap="teacherMap">
+		<include refid="select-all-column"/>
+		<where>
+		<include refid="where-all-condition"/>
+		<include refid="commonRoadMapper.sortSql"/>
+		<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+	
+	<select id="selectOneTeacher" parameterType="java.lang.Long" resultMap="teacherMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countTeacher" parameterType="wt.bs.domain.criteria.TeacherCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM teacher
+		<where>
+		<include refid="where-all-condition"/>
+		</where>
+	</select>
+	
+	<insert id="insertTeacher" parameterType="wt.bs.domain.entity.TeacherEntity" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO teacher (
+	<if test="userId != null">
+		user_id,
+	</if>
+	<if test="name != null">
+		name,
+	</if>
+	<if test="loginName != null">
+		login_name,
+	</if>
+	<if test="pwd != null">
+		pwd,
+	</if>
+	<if test="sex != null">
+		sex,
+	</if>
+	<if test="yn != null">
+		yn,
+	</if>
+	<if test="sysVersion != null">
+		sysVersion,
+	</if>
+	<if test="createUser != null">
+		create_user,
+	</if>
+	<if test="updateUser != null">
+		update_user,
+	</if>
+	<if test="code != null">
+		code,
+	</if>
+		create_time,
+		update_time
+	) VALUES (
+    <if test="userId != null">
+    	#{userId,jdbcType=BIGINT},
+    </if>
+    <if test="name != null">
+    	#{name,jdbcType=VARCHAR},
+    </if>
+    <if test="loginName != null">
+    	#{loginName,jdbcType=VARCHAR},
+    </if>
+    <if test="pwd != null">
+    	#{pwd,jdbcType=VARCHAR},
+    </if>
+    <if test="sex != null">
+    	#{sex,jdbcType=TINYINT},
+    </if>
+    <if test="yn != null">
+    	#{yn,jdbcType=TINYINT},
+    </if>
+    <if test="sysVersion != null">
+    	#{sysVersion,jdbcType=BIGINT},
+    </if>
+    <if test="createUser != null">
+    	#{createUser,jdbcType=VARCHAR},
+    </if>
+    <if test="updateUser != null">
+    	#{updateUser,jdbcType=VARCHAR},
+    </if>
+    <if test="code != null">
+    	#{code,jdbcType=VARCHAR},
+    </if>
+		now(),
+		now()
+	)
+	</insert>
+	
+	<insert id="insertTeacherBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+	<selectKey resultType="long" keyProperty="id" order="AFTER">
+		SELECT
+		LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO teacher (
+		user_id,
+		name,
+		login_name,
+		pwd,
+		sex,
+		yn,
+		sysVersion,
+		create_user,
+		update_user,
+		code,
+		create_time,
+		update_time
+	) VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+    (
+		#{item.userId,jdbcType=BIGINT},
+		#{item.name,jdbcType=VARCHAR},
+		#{item.loginName,jdbcType=VARCHAR},
+		#{item.pwd,jdbcType=VARCHAR},
+		#{item.sex,jdbcType=TINYINT},
+		#{item.yn,jdbcType=TINYINT},
+		#{item.sysVersion,jdbcType=BIGINT},
+		#{item.createUser,jdbcType=VARCHAR},
+		#{item.updateUser,jdbcType=VARCHAR},
+		#{item.code,jdbcType=VARCHAR},
+		now(),
+		now()
+			)
+	</foreach>
+	</insert>
+	
+	<update id="updateTeacher" parameterType="java.util.Map">
+		UPDATE teacher
+		<set>
+    	<if test="userId != null">
+            user_id = #{userId,jdbcType=BIGINT},
+    	</if>
+    	<if test="name != null">
+            name = #{name,jdbcType=VARCHAR},
+    	</if>
+    	<if test="loginName != null">
+            login_name = #{loginName,jdbcType=VARCHAR},
+    	</if>
+    	<if test="pwd != null">
+            pwd = #{pwd,jdbcType=VARCHAR},
+    	</if>
+    	<if test="sex != null">
+            sex = #{sex,jdbcType=TINYINT},
+    	</if>
+    	<if test="yn != null">
+            yn = #{yn,jdbcType=TINYINT},
+    	</if>
+    	<if test="sysVersion != null">
+            sysVersion = #{sysVersion,jdbcType=BIGINT},
+    	</if>
+    	<if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+    	</if>
+    	<if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="code != null">
+            code = #{code,jdbcType=VARCHAR},
+    	</if>
+        sysVersion = sysVersion + 1,
+        update_time =now()
+		</set>
+		WHERE 
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateTeacherBatch"  parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+		update teacher 
+		<set>
+		<if test="item.userId != null">
+			user_id = #{item.userId,jdbcType=BIGINT},
+		</if>
+		<if test="item.name != null">
+			name = #{item.name,jdbcType=VARCHAR},
+		</if>
+		<if test="item.loginName != null">
+			login_name = #{item.loginName,jdbcType=VARCHAR},
+		</if>
+		<if test="item.pwd != null">
+			pwd = #{item.pwd,jdbcType=VARCHAR},
+		</if>
+		<if test="item.sex != null">
+			sex = #{item.sex,jdbcType=TINYINT},
+		</if>
+		<if test="item.yn != null">
+			yn = #{item.yn,jdbcType=TINYINT},
+		</if>
+		<if test="item.sysVersion != null">
+			sysVersion = #{item.sysVersion,jdbcType=BIGINT},
+		</if>
+		<if test="item.createTime != null">
+			create_time = #{item.createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="item.createUser != null">
+			create_user = #{item.createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.updateUser != null">
+			update_user = #{item.updateUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.code != null">
+			code = #{item.code,jdbcType=VARCHAR},
+		</if>
+		sysVersion = sysVersion + 1,
+		update_time =now()
+		</set>
+		WHERE 
+		id = #{item.id,jdbcType=BIGINT}
+
+	</foreach>
+	</update>
+	
+	<delete id="deleteTeacher" parameterType="wt.bs.domain.criteria.TeacherCriteria">
+		DELETE FROM teacher
+		WHERE 
+		<include refid="where-all-condition"/>
+	</delete>
+	
+	<delete id="deleteOneTeacher" parameterType="java.lang.Long">
+		DELETE FROM teacher
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<select id="selectMaxTeacherCode" resultType="java.lang.String">
+		SELECT code FROM teacher ORDER BY id DESC limit 1
+	</select>
+</mapper>

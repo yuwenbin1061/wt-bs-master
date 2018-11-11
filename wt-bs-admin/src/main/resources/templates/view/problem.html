@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{view/common/common}">
+
+<div class="centerView" data-type="widgets" th:fragment="content">
+
+</div>
+<div class="centerView" data-type="widgets" th:fragment="content">
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <div class="row-content am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">質問リスト</div>
+                        </div>
+                        <input type="hidden" class="tpl-form-input" name="identity" id="identity" th:value="${identity}" hidden>
+                        <input type="hidden" class="tpl-form-input" name="batchNo" id="batchNo" th:value="${batchNo}" hidden>
+
+                        <div style="padding-top: 50px">
+                            <div class="am-input-group am-u-lg-4">
+                                <input type="text" id="descs" name="descs" class="am-form-field" placeholder="  キーワードを入力してください">
+                            </div>
+                        </div>
+
+
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-2">
+                                <div class="am-form-group">
+                                    <div class="am-btn-toolbar">
+                                        <div class="am-btn-group am-btn-group-xs">
+                                            <button type="button" onclick="find()" class="am-btn am-btn-default am-btn-success" ><span class="am-icon-search"></span> 検索</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/problems.js}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            initTable();
+        });
+    </script>
+</div>
+</html>

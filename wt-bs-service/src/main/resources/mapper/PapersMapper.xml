@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="papersMapper">
+	<resultMap id="papersMap" type="wt.bs.domain.entity.PapersEntity">
+	</resultMap>
+    
+    <sql id="select-all-column">
+		SELECT
+			id AS id,
+			batch_no AS batchNo,
+			teacher_code AS teacherCode,
+			yn AS yn,
+			sysVersion AS sysVersion,
+			create_time AS createTime,
+			update_time AS updateTime,
+			create_user AS createUser,
+			update_user AS updateUser
+		FROM papers
+	</sql>
+	
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="batchNo != null and batchNo != ''">
+			and batch_no = #{batchNo,jdbcType=VARCHAR}
+		</if>
+		<if test="teacherCode != null and teacherCode != ''">
+			and teacher_code = #{teacherCode,jdbcType=VARCHAR}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=TINYINT}
+		</if>
+		<if test="sysVersion != null">
+			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<select id="selectPapers" parameterType="wt.bs.domain.criteria.PapersCriteria" resultMap="papersMap">
+		<include refid="select-all-column"/>
+		<where>
+		<include refid="where-all-condition"/>
+		<include refid="commonRoadMapper.sortSql"/>
+		<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+	
+	<select id="selectOnePapers" parameterType="java.lang.Long" resultMap="papersMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countPapers" parameterType="wt.bs.domain.criteria.PapersCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM papers
+		<where>
+		<include refid="where-all-condition"/>
+		</where>
+	</select>
+	
+	<insert id="insertPapers" parameterType="wt.bs.domain.entity.PapersEntity" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO papers (
+	<if test="batchNo != null">
+		batch_no,
+	</if>
+	<if test="teacherCode != null">
+		teacher_code,
+	</if>
+	<if test="yn != null">
+		yn,
+	</if>
+	<if test="sysVersion != null">
+		sysVersion,
+	</if>
+	<if test="createUser != null">
+		create_user,
+	</if>
+	<if test="updateUser != null">
+		update_user,
+	</if>
+		create_time,
+		update_time
+	) VALUES (
+    <if test="batchNo != null">
+    	#{batchNo,jdbcType=VARCHAR},
+    </if>
+    <if test="teacherCode != null">
+    	#{teacherCode,jdbcType=VARCHAR},
+    </if>
+    <if test="yn != null">
+    	#{yn,jdbcType=TINYINT},
+    </if>
+    <if test="sysVersion != null">
+    	#{sysVersion,jdbcType=BIGINT},
+    </if>
+    <if test="createUser != null">
+    	#{createUser,jdbcType=VARCHAR},
+    </if>
+    <if test="updateUser != null">
+    	#{updateUser,jdbcType=VARCHAR},
+    </if>
+		now(),
+		now()
+	)
+	</insert>
+	
+	<insert id="insertPapersBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+	<selectKey resultType="long" keyProperty="id" order="AFTER">
+		SELECT
+		LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO papers (
+		batch_no,
+		teacher_code,
+		yn,
+		sysVersion,
+		create_user,
+		update_user,
+		create_time,
+		update_time
+	) VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+    (
+		#{item.batchNo,jdbcType=VARCHAR},
+		#{item.teacherCode,jdbcType=VARCHAR},
+		#{item.yn,jdbcType=TINYINT},
+		#{item.sysVersion,jdbcType=BIGINT},
+		#{item.createUser,jdbcType=VARCHAR},
+		#{item.updateUser,jdbcType=VARCHAR},
+		now(),
+		now()
+			)
+	</foreach>
+	</insert>
+	
+	<update id="updatePapers" parameterType="java.util.Map">
+		UPDATE papers
+		<set>
+    	<if test="batchNo != null">
+            batch_no = #{batchNo,jdbcType=VARCHAR},
+    	</if>
+    	<if test="teacherCode != null">
+            teacher_code = #{teacherCode,jdbcType=VARCHAR},
+    	</if>
+    	<if test="yn != null">
+            yn = #{yn,jdbcType=TINYINT},
+    	</if>
+    	<if test="sysVersion != null">
+            sysVersion = #{sysVersion,jdbcType=BIGINT},
+    	</if>
+    	<if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+    	</if>
+    	<if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+    	</if>
+        sys_version = sys_version + 1,
+        update_time =now()
+		</set>
+		WHERE 
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updatePapersBatch"  parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+		update papers 
+		<set>
+		<if test="item.batchNo != null">
+			batch_no = #{item.batchNo,jdbcType=VARCHAR},
+		</if>
+		<if test="item.teacherCode != null">
+			teacher_code = #{item.teacherCode,jdbcType=VARCHAR},
+		</if>
+		<if test="item.yn != null">
+			yn = #{item.yn,jdbcType=TINYINT},
+		</if>
+		<if test="item.sysVersion != null">
+			sysVersion = #{item.sysVersion,jdbcType=BIGINT},
+		</if>
+		<if test="item.createTime != null">
+			create_time = #{item.createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="item.createUser != null">
+			create_user = #{item.createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.updateUser != null">
+			update_user = #{item.updateUser,jdbcType=VARCHAR},
+		</if>
+		sys_version = sys_version + 1,
+		update_time =now()
+		</set>
+		WHERE 
+		id = #{item.id,jdbcType=BIGINT}
+
+	</foreach>
+	</update>
+	
+	<delete id="deletePapers" parameterType="wt.bs.domain.criteria.PapersCriteria">
+		DELETE FROM papers
+		WHERE 
+		<include refid="where-all-condition"/>
+	</delete>
+	
+	<delete id="deleteOnePapers" parameterType="java.lang.Long">
+		DELETE FROM papers
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+</mapper>

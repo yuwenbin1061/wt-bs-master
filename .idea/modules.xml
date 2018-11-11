@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wt-bs.iml" filepath="$PROJECT_DIR$/wt-bs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wt-bs-admin/wt-bs-admin.iml" filepath="$PROJECT_DIR$/wt-bs-admin/wt-bs-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wt-bs-common/wt-bs-common.iml" filepath="$PROJECT_DIR$/wt-bs-common/wt-bs-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wt-bs-service/wt-bs-service.iml" filepath="$PROJECT_DIR$/wt-bs-service/wt-bs-service.iml" />
+    </modules>
+  </component>
+</project>

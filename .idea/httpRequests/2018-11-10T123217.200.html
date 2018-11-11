@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>サンプルシステム</title>
+    <meta name="description" content="これは index ページです">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/jquery.min.js"></script>
+</head>
+
+<body data-type="login">
+<script src="assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <div class="tpl-login">
+        <div class="login_form">
+            <form class="am-form tpl-form-line-form" id="loginForm">
+                <div class="am-form-group">
+                    <input type="text" class="tpl-form-input" name="loginName" id="loginName"
+                           placeholder="アカウント名を入力してください">
+                </div>
+                <div class="am-form-group">
+                    <input type="password" class="tpl-form-input" name="password" id="password"
+                           placeholder="パスワードを入力してください">
+                </div>
+                <div class="am-form-group">
+                    <button type="button" onclick="loginOn()"
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">ログイン
+                    </button>
+                    <button type="button" onclick="signUp()"
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">新規登録
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+    $(document).ready(function () {
+        //获取护眼模式开关状态
+        getThemeToggle();
+        // $("#showAlertID").modal();
+    });
+
+    function loginOn() {
+        if (!($("#doc-ipt-email-1").val() === "" || $("doc-ipt-pwd-1").val() === "")) {
+        } else {
+            alert("ログインしてください");
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            async: false,
+            data: $('#loginForm').serialize(),
+            dataType: 'json',
+            url: "/login",
+            success: function (data) {
+                if (data.code == '0000') {
+                    window.location.href = "index";
+                } else {
+                    alert("失敗");
+                }
+            }
+        });
+    }
+
+
+    function signUp() {
+        window.location.href = "signUp";
+    }
+
+
+</script>
+</body>
+
+</html>

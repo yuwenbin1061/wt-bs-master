@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>新規登録</title>
+    <meta name="description" content="これは新規登録ページです">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="login">
+    <script src="assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <!--<div class="tpl-skiner-content">-->
+                <!--<div class="tpl-skiner-content-title">-->
+                    <!--选择主题-->
+                <!--</div>-->
+                <!--<div class="tpl-skiner-content-bar">-->
+                    <!--<span class="skiner-color skiner-white" data-color="theme-white"></span>-->
+                    <!--<span class="skiner-color skiner-black" data-color="theme-black"></span>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                <div class="tpl-login-title">新規登録</div>
+                <span class="tpl-login-content-info">
+              </span>
+                <form class="am-form tpl-form-line-form" id="registerForm">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="name" id="name" placeholder="ユーザー名" required>
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="loginName" id="loginName" placeholder="アカウント名" required>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-form-group">
+                            <label class="am-radio-inline">
+                                <input type="radio" checked="checked" name="sex" value="1" data-am-ucheck> 男
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="sex" value="2" data-am-ucheck> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-form-group">
+                            <label class="am-radio-inline">
+                                <input type="radio" checked="checked" name="identity" value="1" data-am-ucheck> 教師
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="identity" value="2" data-am-ucheck> 学生
+                            </label>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" name="pwd" id="pwd" placeholder="パスワードを入力してください" required>
+                    </div>
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" name="sPwd" id="sPwd" placeholder="もう一度パスワードを入力してください" required>
+                    </div>
+                    <div class="am-form-group">
+                        <button type="button"  onclick="register()"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">確認</button>
+                        <button type="button"  onclick="ret()"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">戻る</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        // $(document).ready(function () {
+        //     //获取护眼模式开关状态
+        //     getThemeToggle();
+        //     $("#showAlertID").modal();
+        // });
+
+        function register(){
+            $.ajax({
+                type : "POST",
+                async : false,
+                data:$('#registerForm').serialize(),
+                dataType: 'json',
+                url : "/register",
+                success:function(data){
+                    if(data.code=='0000'){
+                        window.location.href ="/";
+                    }else{
+                        alert("失敗");
+                    }
+                }
+            });
+        }
+
+        function ret(){
+            window.location.href ="/";
+        }
+    </script>
+
+</body>
+
+</html>

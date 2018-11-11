@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="userMapper">
+	<resultMap id="userMap" type="wt.bs.domain.entity.UserEntity">
+	</resultMap>
+    
+    <sql id="select-all-column">
+		SELECT
+			id AS id,
+			identity AS identity,
+			login_name AS loginName,
+			pwd AS pwd,
+			yn AS yn,
+			sysVersion AS sysVersion,
+			create_time AS createTime,
+			update_time AS updateTime,
+			create_user AS createUser,
+			update_user AS updateUser
+		FROM user
+	</sql>
+	
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="identity != null">
+			and identity = #{identity,jdbcType=TINYINT}
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and login_name = #{loginName,jdbcType=VARCHAR}
+		</if>
+		<if test="pwd != null and pwd != ''">
+			and pwd = #{pwd,jdbcType=VARCHAR}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=TINYINT}
+		</if>
+		<if test="sysVersion != null">
+			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<select id="selectUser" parameterType="wt.bs.domain.criteria.UserCriteria" resultMap="userMap">
+		<include refid="select-all-column"/>
+		<where>
+		<include refid="where-all-condition"/>
+		<include refid="commonRoadMapper.sortSql"/>
+		<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+	
+	<select id="selectOneUser" parameterType="java.lang.Long" resultMap="userMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countUser" parameterType="wt.bs.domain.criteria.UserCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM user
+		<where>
+		<include refid="where-all-condition"/>
+		</where>
+	</select>
+	
+	<insert id="insertUser" parameterType="wt.bs.domain.entity.UserEntity" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO user (
+	<if test="identity != null">
+		identity,
+	</if>
+	<if test="loginName != null">
+		login_name,
+	</if>
+	<if test="pwd != null">
+		pwd,
+	</if>
+	<if test="yn != null">
+		yn,
+	</if>
+	<if test="sysVersion != null">
+		sysVersion,
+	</if>
+	<if test="createUser != null">
+		create_user,
+	</if>
+	<if test="updateUser != null">
+		update_user,
+	</if>
+		create_time,
+		update_time
+	) VALUES (
+    <if test="identity != null">
+    	#{identity,jdbcType=TINYINT},
+    </if>
+    <if test="loginName != null">
+    	#{loginName,jdbcType=VARCHAR},
+    </if>
+    <if test="pwd != null">
+    	#{pwd,jdbcType=VARCHAR},
+    </if>
+    <if test="yn != null">
+    	#{yn,jdbcType=TINYINT},
+    </if>
+    <if test="sysVersion != null">
+    	#{sysVersion,jdbcType=BIGINT},
+    </if>
+    <if test="createUser != null">
+    	#{createUser,jdbcType=VARCHAR},
+    </if>
+    <if test="updateUser != null">
+    	#{updateUser,jdbcType=VARCHAR},
+    </if>
+		now(),
+		now()
+	)
+	</insert>
+	
+	<insert id="insertUserBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+	<selectKey resultType="long" keyProperty="id" order="AFTER">
+		SELECT
+		LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO user (
+		identity,
+		login_name,
+		pwd,
+		yn,
+		sysVersion,
+		create_user,
+		update_user,
+		create_time,
+		update_time
+	) VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+    (
+		#{item.identity,jdbcType=TINYINT},
+		#{item.loginName,jdbcType=VARCHAR},
+		#{item.pwd,jdbcType=VARCHAR},
+		#{item.yn,jdbcType=TINYINT},
+		#{item.sysVersion,jdbcType=BIGINT},
+		#{item.createUser,jdbcType=VARCHAR},
+		#{item.updateUser,jdbcType=VARCHAR},
+		now(),
+		now()
+			)
+	</foreach>
+	</insert>
+	
+	<update id="updateUser" parameterType="java.util.Map">
+		UPDATE user
+		<set>
+    	<if test="identity != null">
+            identity = #{identity,jdbcType=TINYINT},
+    	</if>
+    	<if test="loginName != null">
+            login_name = #{loginName,jdbcType=VARCHAR},
+    	</if>
+    	<if test="pwd != null">
+            pwd = #{pwd,jdbcType=VARCHAR},
+    	</if>
+    	<if test="yn != null">
+            yn = #{yn,jdbcType=TINYINT},
+    	</if>
+    	<if test="sysVersion != null">
+            sysVersion = #{sysVersion,jdbcType=BIGINT},
+    	</if>
+    	<if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+    	</if>
+    	<if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+    	</if>
+        sysVersion = sysVersion + 1,
+        update_time =now()
+		</set>
+		WHERE 
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateUserBatch"  parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+		update user 
+		<set>
+		<if test="item.identity != null">
+			identity = #{item.identity,jdbcType=TINYINT},
+		</if>
+		<if test="item.loginName != null">
+			login_name = #{item.loginName,jdbcType=VARCHAR},
+		</if>
+		<if test="item.pwd != null">
+			pwd = #{item.pwd,jdbcType=VARCHAR},
+		</if>
+		<if test="item.yn != null">
+			yn = #{item.yn,jdbcType=TINYINT},
+		</if>
+		<if test="item.sysVersion != null">
+			sysVersion = #{item.sysVersion,jdbcType=BIGINT},
+		</if>
+		<if test="item.createTime != null">
+			create_time = #{item.createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="item.createUser != null">
+			create_user = #{item.createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.updateUser != null">
+			update_user = #{item.updateUser,jdbcType=VARCHAR},
+		</if>
+		sysVersion = sysVersion + 1,
+		update_time =now()
+		</set>
+		WHERE 
+		id = #{item.id,jdbcType=BIGINT}
+
+	</foreach>
+	</update>
+	
+	<delete id="deleteUser" parameterType="wt.bs.domain.criteria.UserCriteria">
+		DELETE FROM user
+		WHERE 
+		<include refid="where-all-condition"/>
+	</delete>
+	
+	<delete id="deleteOneUser" parameterType="java.lang.Long">
+		DELETE FROM user
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+</mapper>

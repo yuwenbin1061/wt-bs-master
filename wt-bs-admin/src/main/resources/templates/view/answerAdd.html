@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{view/common/common}">
+
+<div class="centerView" data-type="widgets" th:fragment="content">
+
+</div>
+<div class="centerView" data-type="widgets" th:fragment="content">
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                <div class="tpl-login-title">質問に答えてください</div>
+                <span class="tpl-login-content-info">
+              </span>
+                <form class="am-form tpl-form-line-form" id="answerFrom">
+                    <input type="hidden" class="tpl-form-input" name="problemId" id="problemId" th:value="${problemId}" hidden>
+                    <input type="text" class="tpl-form-input" name="descs" id="descs" th:value="${descs}" disabled>
+                    <div class="am-form-group">
+                        <textarea class="" rows="5" id="answer" name="answer" placeholder="答えが複数ある場合、「,」で分けて書いてください。"></textarea>
+                    </div>
+                    <div class="am-form-group">
+                        <button type="button"  onclick="addProblem()"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">確認</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/answer.js}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            initTable();
+        });
+    </script>
+</div>
+</html>

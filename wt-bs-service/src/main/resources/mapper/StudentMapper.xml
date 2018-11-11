@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="studentMapper">
+	<resultMap id="studentMap" type="wt.bs.domain.entity.StudentEntity">
+	</resultMap>
+    
+    <sql id="select-all-column">
+		SELECT
+			id AS id,
+			user_id AS userId,
+			code AS code,
+			levels AS levels,
+			name AS name,
+			login_name AS loginName,
+			pwd AS pwd,
+			sex AS sex,
+			yn AS yn,
+			sysVersion AS sysVersion,
+			create_time AS createTime,
+			update_time AS updateTime,
+			create_user AS createUser,
+			update_user AS updateUser
+		FROM student
+	</sql>
+	
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=BIGINT}
+		</if>
+		<if test="code != null and code != ''">
+			and code = #{code,jdbcType=VARCHAR}
+		</if>
+		<if test="levels != null">
+			and levels = #{levels,jdbcType=TINYINT}
+		</if>
+		<if test="name != null and name != ''">
+			and name = #{name,jdbcType=VARCHAR}
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and login_name = #{loginName,jdbcType=VARCHAR}
+		</if>
+		<if test="pwd != null and pwd != ''">
+			and pwd = #{pwd,jdbcType=VARCHAR}
+		</if>
+		<if test="sex != null">
+			and sex = #{sex,jdbcType=TINYINT}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=TINYINT}
+		</if>
+		<if test="sysVersion != null">
+			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+	</sql>
+	
+	<select id="selectStudent" parameterType="wt.bs.domain.criteria.StudentCriteria" resultMap="studentMap">
+		<include refid="select-all-column"/>
+		<where>
+		<include refid="where-all-condition"/>
+		<include refid="commonRoadMapper.sortSql"/>
+		<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+	
+	<select id="selectOneStudent" parameterType="java.lang.Long" resultMap="studentMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countStudent" parameterType="wt.bs.domain.criteria.StudentCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM student
+		<where>
+		<include refid="where-all-condition"/>
+		</where>
+	</select>
+	
+	<insert id="insertStudent" parameterType="wt.bs.domain.entity.StudentEntity" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO student (
+	<if test="userId != null">
+		user_id,
+	</if>
+	<if test="code != null">
+		code,
+	</if>
+	<if test="levels != null">
+		levels,
+	</if>
+	<if test="name != null">
+		name,
+	</if>
+	<if test="loginName != null">
+		login_name,
+	</if>
+	<if test="pwd != null">
+		pwd,
+	</if>
+	<if test="sex != null">
+		sex,
+	</if>
+	<if test="yn != null">
+		yn,
+	</if>
+	<if test="sysVersion != null">
+		sysVersion,
+	</if>
+	<if test="createUser != null">
+		create_user,
+	</if>
+	<if test="updateUser != null">
+		update_user,
+	</if>
+		create_time,
+		update_time
+	) VALUES (
+    <if test="userId != null">
+    	#{userId,jdbcType=BIGINT},
+    </if>
+    <if test="code != null">
+    	#{code,jdbcType=VARCHAR},
+    </if>
+    <if test="levels != null">
+    	#{levels,jdbcType=TINYINT},
+    </if>
+    <if test="name != null">
+    	#{name,jdbcType=VARCHAR},
+    </if>
+    <if test="loginName != null">
+    	#{loginName,jdbcType=VARCHAR},
+    </if>
+    <if test="pwd != null">
+    	#{pwd,jdbcType=VARCHAR},
+    </if>
+    <if test="sex != null">
+    	#{sex,jdbcType=TINYINT},
+    </if>
+    <if test="yn != null">
+    	#{yn,jdbcType=TINYINT},
+    </if>
+    <if test="sysVersion != null">
+    	#{sysVersion,jdbcType=BIGINT},
+    </if>
+    <if test="createUser != null">
+    	#{createUser,jdbcType=VARCHAR},
+    </if>
+    <if test="updateUser != null">
+    	#{updateUser,jdbcType=VARCHAR},
+    </if>
+		now(),
+		now()
+	)
+	</insert>
+	
+	<insert id="insertStudentBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+	<selectKey resultType="long" keyProperty="id" order="AFTER">
+		SELECT
+		LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO student (
+		user_id,
+		code,
+		levels,
+		name,
+		login_name,
+		pwd,
+		sex,
+		yn,
+		sysVersion,
+		create_user,
+		update_user,
+		create_time,
+		update_time
+	) VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+    (
+		#{item.userId,jdbcType=BIGINT},
+		#{item.code,jdbcType=VARCHAR},
+		#{item.levels,jdbcType=TINYINT},
+		#{item.name,jdbcType=VARCHAR},
+		#{item.loginName,jdbcType=VARCHAR},
+		#{item.pwd,jdbcType=VARCHAR},
+		#{item.sex,jdbcType=TINYINT},
+		#{item.yn,jdbcType=TINYINT},
+		#{item.sysVersion,jdbcType=BIGINT},
+		#{item.createUser,jdbcType=VARCHAR},
+		#{item.updateUser,jdbcType=VARCHAR},
+		now(),
+		now()
+			)
+	</foreach>
+	</insert>
+	
+	<update id="updateStudent" parameterType="java.util.Map">
+		UPDATE student
+		<set>
+    	<if test="userId != null">
+            user_id = #{userId,jdbcType=BIGINT},
+    	</if>
+    	<if test="code != null">
+            code = #{code,jdbcType=VARCHAR},
+    	</if>
+    	<if test="levels != null">
+            levels = #{levels,jdbcType=TINYINT},
+    	</if>
+    	<if test="name != null">
+            name = #{name,jdbcType=VARCHAR},
+    	</if>
+    	<if test="loginName != null">
+            login_name = #{loginName,jdbcType=VARCHAR},
+    	</if>
+    	<if test="pwd != null">
+            pwd = #{pwd,jdbcType=VARCHAR},
+    	</if>
+    	<if test="sex != null">
+            sex = #{sex,jdbcType=TINYINT},
+    	</if>
+    	<if test="yn != null">
+            yn = #{yn,jdbcType=TINYINT},
+    	</if>
+    	<if test="sysVersion != null">
+            sysVersion = #{sysVersion,jdbcType=BIGINT},
+    	</if>
+    	<if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+    	</if>
+    	<if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+    	</if>
+        sysVersion = sysVersion + 1,
+        update_time =now()
+		</set>
+		WHERE 
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateStudentBatch"  parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+		update student 
+		<set>
+		<if test="item.userId != null">
+			user_id = #{item.userId,jdbcType=BIGINT},
+		</if>
+		<if test="item.code != null">
+			code = #{item.code,jdbcType=VARCHAR},
+		</if>
+		<if test="item.levels != null">
+			levels = #{item.levels,jdbcType=TINYINT},
+		</if>
+		<if test="item.name != null">
+			name = #{item.name,jdbcType=VARCHAR},
+		</if>
+		<if test="item.loginName != null">
+			login_name = #{item.loginName,jdbcType=VARCHAR},
+		</if>
+		<if test="item.pwd != null">
+			pwd = #{item.pwd,jdbcType=VARCHAR},
+		</if>
+		<if test="item.sex != null">
+			sex = #{item.sex,jdbcType=TINYINT},
+		</if>
+		<if test="item.yn != null">
+			yn = #{item.yn,jdbcType=TINYINT},
+		</if>
+		<if test="item.sysVersion != null">
+			sysVersion = #{item.sysVersion,jdbcType=BIGINT},
+		</if>
+		<if test="item.createTime != null">
+			create_time = #{item.createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="item.createUser != null">
+			create_user = #{item.createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.updateUser != null">
+			update_user = #{item.updateUser,jdbcType=VARCHAR},
+		</if>
+		sysVersion = sysVersion + 1,
+		update_time =now()
+		</set>
+		WHERE 
+		id = #{item.id,jdbcType=BIGINT}
+
+	</foreach>
+	</update>
+	
+	<delete id="deleteStudent" parameterType="wt.bs.domain.criteria.StudentCriteria">
+		DELETE FROM student
+		WHERE 
+		<include refid="where-all-condition"/>
+	</delete>
+	
+	<delete id="deleteOneStudent" parameterType="java.lang.Long">
+		DELETE FROM student
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<select id="selectMaxStudentCode" resultType="java.lang.String">
+		SELECT code FROM student ORDER BY id DESC limit 1
+	</select>
+</mapper>

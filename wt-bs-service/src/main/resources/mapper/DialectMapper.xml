@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="dialectMapper">
+	<resultMap id="dialectMap" type="wt.bs.domain.entity.DialectEntity">
+	</resultMap>
+    
+    <sql id="select-all-column">
+		SELECT
+			id AS id,
+			region AS region,
+			dialect AS dialect,
+			kanji AS kanji,
+			translation AS translation,
+			nominal AS nominal,
+			example AS example,
+			sys_version AS sysVersion,
+			create_time AS createTime,
+			update_time AS updateTime,
+			create_user AS createUser,
+			update_user AS updateUser,
+			yn AS yn
+		FROM dialect
+	</sql>
+	
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="region != null">
+			and region = #{region,jdbcType=INTEGER}
+		</if>
+		<if test="dialect != null and dialect != ''">
+			and dialect = #{dialect,jdbcType=VARCHAR}
+		</if>
+		<if test="kanji != null and kanji != ''">
+			and kanji = #{kanji,jdbcType=VARCHAR}
+		</if>
+		<if test="translation != null and translation != ''">
+			and translation = #{translation,jdbcType=VARCHAR}
+		</if>
+		<if test="nominal != null and nominal != ''">
+			and nominal = #{nominal,jdbcType=VARCHAR}
+		</if>
+		<if test="example != null and example != ''">
+			and example = #{example,jdbcType=VARCHAR}
+		</if>
+		<if test="sysVersion != null">
+			and sys_version = #{sysVersion,jdbcType=INTEGER}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=INTEGER}
+		</if>
+	</sql>
+	
+	<select id="selectDialect" parameterType="wt.bs.domain.criteria.DialectCriteria" resultMap="dialectMap">
+		<include refid="select-all-column"/>
+		<where>
+		<include refid="where-all-condition"/>
+		<include refid="commonRoadMapper.sortSql"/>
+		<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+	
+	<select id="selectOneDialect" parameterType="java.lang.Long" resultMap="dialectMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countDialect" parameterType="wt.bs.domain.criteria.DialectCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM dialect
+		<where>
+		<include refid="where-all-condition"/>
+		</where>
+	</select>
+	
+	<insert id="insertDialect" parameterType="wt.bs.domain.entity.DialectEntity" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO dialect (
+	<if test="region != null">
+		region,
+	</if>
+	<if test="dialect != null">
+		dialect,
+	</if>
+	<if test="kanji != null">
+		kanji,
+	</if>
+	<if test="translation != null">
+		translation,
+	</if>
+	<if test="nominal != null">
+		nominal,
+	</if>
+	<if test="example != null">
+		example,
+	</if>
+	<if test="sysVersion != null">
+		sys_version,
+	</if>
+	<if test="createUser != null">
+		create_user,
+	</if>
+	<if test="updateUser != null">
+		update_user,
+	</if>
+	<if test="yn != null">
+		yn,
+	</if>
+		create_time,
+		update_time
+	) VALUES (
+    <if test="region != null">
+    	#{region,jdbcType=INTEGER},
+    </if>
+    <if test="dialect != null">
+    	#{dialect,jdbcType=VARCHAR},
+    </if>
+    <if test="kanji != null">
+    	#{kanji,jdbcType=VARCHAR},
+    </if>
+    <if test="translation != null">
+    	#{translation,jdbcType=VARCHAR},
+    </if>
+    <if test="nominal != null">
+    	#{nominal,jdbcType=VARCHAR},
+    </if>
+    <if test="example != null">
+    	#{example,jdbcType=VARCHAR},
+    </if>
+    <if test="sysVersion != null">
+    	#{sysVersion,jdbcType=INTEGER},
+    </if>
+    <if test="createUser != null">
+    	#{createUser,jdbcType=VARCHAR},
+    </if>
+    <if test="updateUser != null">
+    	#{updateUser,jdbcType=VARCHAR},
+    </if>
+    <if test="yn != null">
+    	#{yn,jdbcType=INTEGER},
+    </if>
+		now(),
+		now()
+	)
+	</insert>
+	
+	<insert id="insertDialectBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+	<selectKey resultType="long" keyProperty="id" order="AFTER">
+		SELECT
+		LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO dialect (
+		region,
+		dialect,
+		kanji,
+		translation,
+		nominal,
+		example,
+		create_user,
+		update_user,
+		yn,
+		create_time,
+		update_time
+	) VALUES
+	<foreach collection="list" item="item" index="index" separator=",">
+    (
+		#{item.region,jdbcType=INTEGER},
+		#{item.dialect,jdbcType=VARCHAR},
+		#{item.kanji,jdbcType=VARCHAR},
+		#{item.translation,jdbcType=VARCHAR},
+		#{item.nominal,jdbcType=VARCHAR},
+		#{item.example,jdbcType=VARCHAR},
+		#{item.createUser,jdbcType=VARCHAR},
+		#{item.updateUser,jdbcType=VARCHAR},
+		#{item.yn,jdbcType=INTEGER},
+		now(),
+		now()
+			)
+	</foreach>
+	</insert>
+	
+	<update id="updateDialect" parameterType="java.util.Map">
+		UPDATE dialect
+		<set>
+    	<if test="region != null">
+            region = #{region,jdbcType=INTEGER},
+    	</if>
+    	<if test="dialect != null">
+            dialect = #{dialect,jdbcType=VARCHAR},
+    	</if>
+    	<if test="kanji != null">
+            kanji = #{kanji,jdbcType=VARCHAR},
+    	</if>
+    	<if test="translation != null">
+            translation = #{translation,jdbcType=VARCHAR},
+    	</if>
+    	<if test="nominal != null">
+            nominal = #{nominal,jdbcType=VARCHAR},
+    	</if>
+    	<if test="example != null">
+            example = #{example,jdbcType=VARCHAR},
+    	</if>
+    	<if test="createTime != null">
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+    	</if>
+    	<if test="createUser != null">
+            create_user = #{createUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="updateUser != null">
+            update_user = #{updateUser,jdbcType=VARCHAR},
+    	</if>
+    	<if test="yn != null">
+            yn = #{yn,jdbcType=INTEGER},
+    	</if>
+        sys_version = sys_version + 1,
+        update_time =now()
+		</set>
+		WHERE 
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateDialectBatch"  parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+		update dialect 
+		<set>
+		<if test="item.region != null">
+			region = #{item.region,jdbcType=INTEGER},
+		</if>
+		<if test="item.dialect != null">
+			dialect = #{item.dialect,jdbcType=VARCHAR},
+		</if>
+		<if test="item.kanji != null">
+			kanji = #{item.kanji,jdbcType=VARCHAR},
+		</if>
+		<if test="item.translation != null">
+			translation = #{item.translation,jdbcType=VARCHAR},
+		</if>
+		<if test="item.nominal != null">
+			nominal = #{item.nominal,jdbcType=VARCHAR},
+		</if>
+		<if test="item.example != null">
+			example = #{item.example,jdbcType=VARCHAR},
+		</if>
+		<if test="item.createTime != null">
+			create_time = #{item.createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="item.createUser != null">
+			create_user = #{item.createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.updateUser != null">
+			update_user = #{item.updateUser,jdbcType=VARCHAR},
+		</if>
+		<if test="item.yn != null">
+			yn = #{item.yn,jdbcType=INTEGER},
+		</if>
+		sys_version = sys_version + 1,
+		update_time =now()
+		</set>
+		WHERE 
+		id = #{item.id,jdbcType=BIGINT}
+
+	</foreach>
+	</update>
+	
+	<delete id="deleteDialect" parameterType="wt.bs.domain.criteria.DialectCriteria">
+		DELETE FROM dialect
+		WHERE 
+		<include refid="where-all-condition"/>
+	</delete>
+	
+	<delete id="deleteOneDialect" parameterType="java.lang.Long">
+		DELETE FROM dialect
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+</mapper>

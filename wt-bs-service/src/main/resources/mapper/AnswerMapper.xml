@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- recommended not modified but can be added ,Please contact liuhuiqing@jd.com for good advice.-->
+<mapper namespace="answerMapper">
+	<resultMap id="answerMap" type="wt.bs.domain.entity.AnswerEntity">
+	</resultMap>
+
+	<sql id="select-all-column">
+		SELECT
+		id AS id,
+		batch_no AS batchNo,
+		problem_id AS problemId,
+		student_code AS studentCode,
+		levels AS levels,
+		descs AS descs,
+		answer AS answer,
+		score AS score,
+		current_score AS currentScore,
+		yn AS yn,
+		sysVersion AS sysVersion,
+		create_time AS createTime,
+		update_time AS updateTime,
+		create_user AS createUser,
+		update_user AS updateUser,
+		doingAnswer AS doingAnswer,
+		doneAnswer AS doneAnswer,
+		failAnswer AS failAnswer
+		FROM answer
+	</sql>
+
+	<sql id="where-all-condition">
+		1=1
+		<if test="id != null">
+			and id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="batchNo != null and batchNo != ''">
+			and batch_no = #{batchNo,jdbcType=VARCHAR}
+		</if>
+		<if test="problemId != null">
+			and problem_id = #{problemId,jdbcType=BIGINT}
+		</if>
+		<if test="studentCode != null and studentCode != ''">
+			and student_code = #{studentCode,jdbcType=VARCHAR}
+		</if>
+		<if test="levels != null">
+			and levels = #{levels,jdbcType=TINYINT}
+		</if>
+		<if test="descs != null and descs != ''">
+			and descs = #{descs,jdbcType=VARCHAR}
+		</if>
+		<if test="answer != null and answer != ''">
+			and answer = #{answer,jdbcType=VARCHAR}
+		</if>
+		<if test="score != null">
+			and score = #{score,jdbcType=BIGINT}
+		</if>
+		<if test="currentScore != null">
+			and current_score = #{currentScore,jdbcType=BIGINT}
+		</if>
+		<if test="yn != null">
+			and yn = #{yn,jdbcType=TINYINT}
+		</if>
+		<if test="sysVersion != null">
+			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+		</if>
+		<if test="createTime != null">
+			and create_time = #{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="updateTime != null">
+			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="createUser != null and createUser != ''">
+			and create_user = #{createUser,jdbcType=VARCHAR}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			and update_user = #{updateUser,jdbcType=VARCHAR}
+		</if>
+		<if test="doingAnswer != null and doingAnswer != ''">
+			and doingAnswer = #{doingAnswer,jdbcType=VARCHAR}
+		</if>
+		<if test="doneAnswer != null and doneAnswer != ''">
+			and doneAnswer = #{doneAnswer,jdbcType=VARCHAR}
+		</if>
+		<if test="failAnswer != null and failAnswer != ''">
+			and failAnswer = #{failAnswer,jdbcType=VARCHAR}
+		</if>
+	</sql>
+
+	<select id="selectAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria" resultMap="answerMap">
+		<include refid="select-all-column"/>
+		<where>
+			<include refid="where-all-condition"/>
+			<include refid="commonRoadMapper.sortSql"/>
+			<include refid="commonRoadMapper.pagingLimit"/>
+		</where>
+	</select>
+
+	<select id="selectOneAnswer" parameterType="java.lang.Long" resultMap="answerMap">
+		<include refid="select-all-column"/>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</select>
+
+	<select id="countAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM answer
+		<where>
+			<include refid="where-all-condition"/>
+		</where>
+	</select>
+
+	<insert id="insertAnswer" parameterType="wt.bs.domain.entity.AnswerEntity" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO answer (
+		<if test="batchNo != null">
+			batch_no,
+		</if>
+		<if test="problemId != null">
+			problem_id,
+		</if>
+		<if test="studentCode != null">
+			student_code,
+		</if>
+		<if test="levels != null">
+			levels,
+		</if>
+		<if test="descs != null">
+			descs,
+		</if>
+		<if test="answer != null">
+			answer,
+		</if>
+		<if test="score != null">
+			score,
+		</if>
+		<if test="currentScore != null">
+			current_score,
+		</if>
+		<if test="yn != null">
+			yn,
+		</if>
+		<if test="sysVersion != null">
+			sysVersion,
+		</if>
+		<if test="createUser != null">
+			create_user,
+		</if>
+		<if test="updateUser != null">
+			update_user,
+		</if>
+		<if test="doingAnswer != null">
+			doingAnswer,
+		</if>
+		<if test="doneAnswer != null">
+			doneAnswer,
+		</if>
+		<if test="failAnswer != null">
+			failAnswer,
+		</if>
+		create_time,
+		update_time
+		) VALUES (
+		<if test="batchNo != null">
+			#{batchNo,jdbcType=VARCHAR},
+		</if>
+		<if test="problemId != null">
+			#{problemId,jdbcType=BIGINT},
+		</if>
+		<if test="studentCode != null">
+			#{studentCode,jdbcType=VARCHAR},
+		</if>
+		<if test="levels != null">
+			#{levels,jdbcType=TINYINT},
+		</if>
+		<if test="descs != null">
+			#{descs,jdbcType=VARCHAR},
+		</if>
+		<if test="answer != null">
+			#{answer,jdbcType=VARCHAR},
+		</if>
+		<if test="score != null">
+			#{score,jdbcType=BIGINT},
+		</if>
+		<if test="currentScore != null">
+			#{currentScore,jdbcType=BIGINT},
+		</if>
+		<if test="yn != null">
+			#{yn,jdbcType=TINYINT},
+		</if>
+		<if test="sysVersion != null">
+			#{sysVersion,jdbcType=BIGINT},
+		</if>
+		<if test="createUser != null">
+			#{createUser,jdbcType=VARCHAR},
+		</if>
+		<if test="updateUser != null">
+			#{updateUser,jdbcType=VARCHAR},
+		</if>
+		<if test="doingAnswer != null">
+			#{doingAnswer,jdbcType=VARCHAR},
+		</if>
+		<if test="doneAnswer != null">
+			#{doneAnswer,jdbcType=VARCHAR},
+		</if>
+		<if test="failAnswer != null">
+			#{failAnswer,jdbcType=VARCHAR},
+		</if>
+		now(),
+		now()
+		)
+	</insert>
+
+	<insert id="insertAnswerBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" keyProperty="id" order="AFTER">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO answer (
+		batch_no,
+		problem_id,
+		student_code,
+		levels,
+		descs,
+		answer,
+		score,
+		current_score,
+		yn,
+		sysVersion,
+		create_user,
+		update_user,
+		doingAnswer,
+		doneAnswer,
+		failAnswer,
+		create_time,
+		update_time
+		) VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.batchNo,jdbcType=VARCHAR},
+			#{item.problemId,jdbcType=BIGINT},
+			#{item.studentCode,jdbcType=VARCHAR},
+			#{item.levels,jdbcType=TINYINT},
+			#{item.descs,jdbcType=VARCHAR},
+			#{item.answer,jdbcType=VARCHAR},
+			#{item.score,jdbcType=BIGINT},
+			#{item.currentScore,jdbcType=BIGINT},
+			#{item.yn,jdbcType=TINYINT},
+			#{item.sysVersion,jdbcType=BIGINT},
+			#{item.createUser,jdbcType=VARCHAR},
+			#{item.updateUser,jdbcType=VARCHAR},
+			#{item.doingAnswer,jdbcType=VARCHAR},
+			#{item.doneAnswer,jdbcType=VARCHAR},
+			#{item.failAnswer,jdbcType=VARCHAR},
+			now(),
+			now()
+			)
+		</foreach>
+	</insert>
+
+	<update id="updateAnswer" parameterType="java.util.Map">
+		UPDATE answer
+		<set>
+			<if test="batchNo != null">
+				batch_no = #{batchNo,jdbcType=VARCHAR},
+			</if>
+			<if test="problemId != null">
+				problem_id = #{problemId,jdbcType=BIGINT},
+			</if>
+			<if test="studentCode != null">
+				student_code = #{studentCode,jdbcType=VARCHAR},
+			</if>
+			<if test="levels != null">
+				levels = #{levels,jdbcType=TINYINT},
+			</if>
+			<if test="descs != null">
+				descs = #{descs,jdbcType=VARCHAR},
+			</if>
+			<if test="answer != null">
+				answer = #{answer,jdbcType=VARCHAR},
+			</if>
+			<if test="score != null">
+				score = #{score,jdbcType=BIGINT},
+			</if>
+			<if test="currentScore != null">
+				current_score = #{currentScore,jdbcType=BIGINT},
+			</if>
+			<if test="yn != null">
+				yn = #{yn,jdbcType=TINYINT},
+			</if>
+			<if test="sysVersion != null">
+				sysVersion = #{sysVersion,jdbcType=BIGINT},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUser != null">
+				update_user = #{updateUser,jdbcType=VARCHAR},
+			</if>
+			<if test="doingAnswer != null">
+				doingAnswer = #{doingAnswer,jdbcType=VARCHAR},
+			</if>
+			<if test="doneAnswer != null">
+				doneAnswer = #{doneAnswer,jdbcType=VARCHAR},
+			</if>
+			<if test="failAnswer != null">
+				failAnswer = #{failAnswer,jdbcType=VARCHAR},
+			</if>
+			sys_version = sys_version + 1,
+			update_time =now()
+		</set>
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<update id="updateAnswerBatch"  parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			update answer
+			<set>
+				<if test="item.batchNo != null">
+					batch_no = #{item.batchNo,jdbcType=VARCHAR},
+				</if>
+				<if test="item.problemId != null">
+					problem_id = #{item.problemId,jdbcType=BIGINT},
+				</if>
+				<if test="item.studentCode != null">
+					student_code = #{item.studentCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.levels != null">
+					levels = #{item.levels,jdbcType=TINYINT},
+				</if>
+				<if test="item.descs != null">
+					descs = #{item.descs,jdbcType=VARCHAR},
+				</if>
+				<if test="item.answer != null">
+					answer = #{item.answer,jdbcType=VARCHAR},
+				</if>
+				<if test="item.score != null">
+					score = #{item.score,jdbcType=BIGINT},
+				</if>
+				<if test="item.currentScore != null">
+					current_score = #{item.currentScore,jdbcType=BIGINT},
+				</if>
+				<if test="item.yn != null">
+					yn = #{item.yn,jdbcType=TINYINT},
+				</if>
+				<if test="item.sysVersion != null">
+					sysVersion = #{item.sysVersion,jdbcType=BIGINT},
+				</if>
+				<if test="item.createTime != null">
+					create_time = #{item.createTime,jdbcType=TIMESTAMP},
+				</if>
+				<if test="item.createUser != null">
+					create_user = #{item.createUser,jdbcType=VARCHAR},
+				</if>
+				<if test="item.updateUser != null">
+					update_user = #{item.updateUser,jdbcType=VARCHAR},
+				</if>
+				<if test="item.doingAnswer != null">
+					doingAnswer = #{item.doingAnswer,jdbcType=VARCHAR},
+				</if>
+				<if test="item.doneAnswer != null">
+					doneAnswer = #{item.doneAnswer,jdbcType=VARCHAR},
+				</if>
+				<if test="item.failAnswer != null">
+					failAnswer = #{item.failAnswer,jdbcType=VARCHAR},
+				</if>
+				sys_version = sys_version + 1,
+				update_time =now()
+			</set>
+			WHERE
+			id = #{item.id,jdbcType=BIGINT}
+
+		</foreach>
+	</update>
+
+	<delete id="deleteAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria">
+		DELETE FROM answer
+		WHERE
+		<include refid="where-all-condition"/>
+	</delete>
+
+	<delete id="deleteOneAnswer" parameterType="java.lang.Long">
+		DELETE FROM answer
+		WHERE
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+</mapper>
