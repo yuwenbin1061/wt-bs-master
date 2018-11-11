@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{view/common/common}">
+<div class="centerView" data-type="widgets" th:fragment="content">
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <div class="row-content am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">回答統計
+                            </div>
+
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-2">
+                                <div class="am-form-group">
+                                    <div class="am-btn-toolbar">
+                                        <input type="hidden" class="tpl-form-input" name="problemId" id="problemId"
+                                               th:value="${problemId}" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--正确答案汇总表-->
+                            <table id="right-table"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/report.js}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            initTable();
+        });
+    </script>
+</div>
+</html>
