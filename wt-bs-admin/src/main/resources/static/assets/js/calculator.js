@@ -1,6 +1,6 @@
 // JavaScript Document
-document.oncontextmenu=new Function("event.returnValue=false;");
-document.onselectstart=new Function("event.returnValue=false;");
+// document.oncontextmenu=new Function("event.returnValue=false;");
+// document.onselectstart=new Function("event.returnValue=false;");
 var _string=new Array();
 var _type;
 function typetoinput(num)
