@@ -47,8 +47,8 @@ function initTable() {
                 checkbox: true
             },
             {
-                field: 'descs',
-                title: 'テキスト',
+                field: 'studentCode',
+                title: '学生番号',
                 align: 'center',
                 valign: 'middle'
             },
@@ -81,24 +81,6 @@ function initTable() {
             {
                 field: 'failAnswer',
                 title: '間違った回答',
-                align: 'center',
-                valign: 'middle'
-            },
-            {
-                field: 'score',
-                title: '質問の点数',
-                align: 'center',
-                valign: 'middle'
-            },
-            {
-                field: 'currentScore',
-                title: '得点',
-                align: 'center',
-                valign: 'middle'
-            },
-            {
-                field: 'studentCode',
-                title: '学生番号',
                 align: 'center',
                 valign: 'middle'
             }

@@ -38,10 +38,15 @@ public class AnswerController extends MgrBaseController {
 
     @RequestMapping(value = "/list")
     public ModelAndView answer(Long id) {
+
+        ProblemEntity problemEntity = problemService.selectOne(id);
+
         ModelAndView view = new ModelAndView("view/answer");
         view.addObject("loginName", super.getUserName());
         view.addObject("problemId", id);
         view.addObject("identity", super.getIdentity());
+        view.addObject("descs", problemEntity.getDescs());
+        view.addObject("answer", problemEntity.getAnswer());
         return view;
     }
 
