@@ -54,4 +54,14 @@ public class AnswerEntity extends BaseEntityBean {
 	 * 回答失败答案
 	 */
 	private String failAnswer;
+
+	/**
+	 * 起始时间
+	 */
+	private String formDate;
+
+	/**
+	 * 终止时间
+	 */
+	private String toDate;
 }

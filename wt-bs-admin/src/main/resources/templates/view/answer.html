@@ -21,24 +21,54 @@
 
                         </div>
                         <div class="widget-body  am-fr">
-                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-fl">
-                                <div class="am-form-group am-text-warning">
-                                    <h5><strong>问题：</strong><span th:text="${descs}"></span></h5>
-                                    <h5><strong>答案：</strong><span th:text="${answer}"></span></h5>
-                                </div>
-                            </div>
-                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-2 am-fr">
-                                <div class="am-form-group">
-                                    <div class="am-btn-toolbar">
-                                        <button type="button" class="am-btn am-btn-primary" onclick="showReport()">
-                                            <i class="am-icon-wpforms"></i>
-                                            レポートを見る
-                                        </button>
-                                        <input type="hidden" class="tpl-form-input" name="problemId" id="problemId" th:value="${problemId}" hidden>
+                            <div class="row">
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-2 am-fl">
+                                    <div class="am-input-group am-datepicker-date"
+                                         data-am-datepicker="{format: 'yyyy-mm-dd', viewMode: 'days'}">
+                                        <input id="fromDate" type="text" class="am-form-field" placeholder="起始日期" readonly>
+                                        <span class="am-input-group-btn am-datepicker-add-on">
+                                            <button class="am-btn am-btn-default" type="button"><span class="am-icon-calendar"></span> </button>
+                                        </span>
                                     </div>
                                 </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-2 am-fl">
+                                    <div class="am-input-group am-datepicker-date"
+                                         data-am-datepicker="{format: 'yyyy-mm-dd', viewMode: 'days'}">
+                                        <input id="toDate" type="text" class="am-form-field" placeholder="终了日期" readonly>
+                                        <span class="am-input-group-btn am-datepicker-add-on">
+                                            <button class="am-btn am-btn-default" type="button"><span class="am-icon-calendar"></span> </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-2 am-fl">
+                                    <button type="button" class="am-btn am-btn-success" onclick="search()">
+                                        <i class="am-icon-search"></i>
+                                        検索
+                                    </button>
+                                </div>
                             </div>
-                            <table id="table"></table>
+                            <br>
+                            <div class="row">
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-fl">
+                                    <div class="am-form-group am-text-warning">
+                                        <h5><strong>问题：</strong><span th:text="${descs}"></span></h5>
+                                        <h5><strong>答案：</strong><span th:text="${answer}"></span></h5>
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-2 am-fr">
+                                    <div class="am-form-group">
+                                        <div class="am-btn-toolbar">
+                                            <button type="button" class="am-btn am-btn-primary" onclick="showReport()">
+                                                <i class="am-icon-wpforms"></i>
+                                                レポートを見る
+                                            </button>
+                                            <input type="hidden" class="tpl-form-input" name="problemId" id="problemId"
+                                                   th:value="${problemId}" hidden>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table id="table"></table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +78,7 @@
     <script th:src="@{/js/answer.js}"></script>
 
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             initTable();
         });
     </script>

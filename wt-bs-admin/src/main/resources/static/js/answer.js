@@ -94,6 +94,8 @@ function initTable() {
 //查询条件
 function queryParams(params) {
     params.problemId = $("#problemId").val();
+    params.fromDate = $('#fromDate').val();
+    params.toDate = $('#toDate').val();
     return params;
 }
 
@@ -125,4 +127,8 @@ function addProblem() {
 function showReport() {
     var problemId = $("#problemId").val();
     window.location.href = "/report/show?id=" + problemId;
+}
+
+function search() {
+    $("#table").bootstrapTable('selectPage', 1).bootstrapTable("refresh");
 }
