@@ -22,8 +22,8 @@ function initTable() {
         },
         url: "/answer/getList", //必选
         queryParams: queryParams, //参数
-        responseHandler : function(result) {
-            if(result.code != "0000") {
+        responseHandler: function (result) {
+            if (result.code != "0000") {
                 alert("検索失敗");
             }
             return result.data;
@@ -42,67 +42,67 @@ function initTable() {
             //     }
             // ],
             // [
-                {
-                    field: '',
-                    checkbox: true
+            {
+                field: '',
+                checkbox: true
+            },
+            {
+                field: 'descs',
+                title: 'テキスト',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'answer',
+                title: '回答',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'doingAnswer',
+                title: '未回答',
+                align: 'center',
+                valign: 'middle',
+                cellStyle: function cellStyle(value, row, index) {
+                    return {
+                        css: {
+                            "color": "red"
+                        }
+                    };
                 },
-                {
-                    field: 'descs',
-                    title: 'テキスト',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'answer',
-                    title: '回答',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'doingAnswer',
-                    title: '未回答',
-                    align: 'center',
-                    valign: 'middle',
-                    cellStyle:  function cellStyle(value, row, index) {
-                        return {
-                            css : {
-                                "color" : "red"
-                            }
-                        };
-                    },
 
-                },
-                {
-                    field: 'doneAnswer',
-                    title: '正しい回答',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'failAnswer',
-                    title: '間違った回答',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'score',
-                    title: '質問の点数',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'currentScore',
-                    title: '得点',
-                    align: 'center',
-                    valign: 'middle'
-                },
-                {
-                    field: 'studentCode',
-                    title: '学生番号',
-                    align: 'center',
-                    valign: 'middle'
-                }
-            ]
+            },
+            {
+                field: 'doneAnswer',
+                title: '正しい回答',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'failAnswer',
+                title: '間違った回答',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'score',
+                title: '質問の点数',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'currentScore',
+                title: '得点',
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                field: 'studentCode',
+                title: '学生番号',
+                align: 'center',
+                valign: 'middle'
+            }
+        ]
 
         // ]
     });
@@ -116,27 +116,31 @@ function queryParams(params) {
 }
 
 // 查询
-function find(){
+function find() {
     $("#table").bootstrapTable('selectPage', 1).bootstrapTable("refresh");
 }
-
 
 
 // 答案添加
 function addProblem() {
     $.ajax({
-        type : "POST",
-        async : false,
-        data:$('#answerFrom').serialize(),
+        type: "POST",
+        async: false,
+        data: $('#answerFrom').serialize(),
         dataType: 'json',
-        url : "/answer/save",
-        success:function(data){
-            if(data.code=='0000'){
+        url: "/answer/save",
+        success: function (data) {
+            if (data.code == '0000') {
                 alert("あなたの得点は:" + data.data);
-                window.location.href ="/problems/list";
-            }else{
+                window.location.href = "/problems/list";
+            } else {
                 alert(data.msg);
             }
         }
     });
+}
+
+function showReport() {
+    var problemId = $("#problemId").val();
+    window.location.href = "/report/show?id=" + problemId;
 }

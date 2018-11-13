@@ -20,17 +20,29 @@ public class ReportController extends MgrBaseController {
     ReportService reportService;
 
     @RequestMapping(value = "/show")
-    public ModelAndView report() {
+    public ModelAndView report(Long id) {
         ModelAndView view = new ModelAndView("view/report");
         view.addObject("loginName", super.getUserName());
-        view.addObject("problemId", 83);
+        view.addObject("problemId", id);
         view.addObject("identity", super.getIdentity());
         return view;
     }
 
-    @RequestMapping(value = "getList")
+    @RequestMapping(value = "getRightList")
     @ResponseBody
-    public BaseResult getList(AnswerCriteria criteria, Integer offset, Integer limit) {
-        return BaseResult.success(reportService.pageQuery(criteria));
+    public BaseResult getRightList(AnswerCriteria criteria, Integer offset, Integer limit) {
+        return BaseResult.success(reportService.pageRightQuery(criteria));
+    }
+
+    @RequestMapping(value = "getIncompleteList")
+    @ResponseBody
+    public BaseResult pageIncompleteQuery(AnswerCriteria criteria, Integer offset, Integer limit) {
+        return BaseResult.success(reportService.pageIncompleteQuery(criteria));
+    }
+
+    @RequestMapping(value = "getFailList")
+    @ResponseBody
+    public BaseResult pageFailQuery(AnswerCriteria criteria, Integer offset, Integer limit) {
+        return BaseResult.success(reportService.pageFailQuery(criteria));
     }
 }

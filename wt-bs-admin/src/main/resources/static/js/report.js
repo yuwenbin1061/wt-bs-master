@@ -1,10 +1,10 @@
 var table;
 
 //初始化
-function initTable() {
+function initTable(tableId, action) {
 
     // #######不用动begin#########
-    table = $('#right-table').bootstrapTable({
+    table = $(tableId).bootstrapTable({
         sidePagination: "server", //表格分页的位置,必选
         method: 'post',//必选
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',//编码,必选
@@ -20,10 +20,10 @@ function initTable() {
         formatNoMatches: function () {  //没有匹配的结果
             return '該当する記録はありません';
         },
-        url: "/report/getList", //必选
+        url: "/report/" + action, //必选
         queryParams: queryParams, //参数
-        responseHandler : function(result) {
-            if(result.code != "0000") {
+        responseHandler: function (result) {
+            if (result.code != "0000") {
                 alert("検索失敗");
             }
             return result.data;
@@ -47,7 +47,7 @@ function initTable() {
                 align: 'center',
                 valign: 'middle',
                 formatter: function (value, row, index) {
-                    return index+1;
+                    return index + 1;
                 }
             },
             {
@@ -76,25 +76,24 @@ function queryParams(params) {
 }
 
 // 查询
-function find(){
+function find() {
     $("#table").bootstrapTable('selectPage', 1).bootstrapTable("refresh");
 }
-
 
 
 // 答案添加
 function addProblem() {
     $.ajax({
-        type : "POST",
-        async : false,
-        data:$('#answerFrom').serialize(),
+        type: "POST",
+        async: false,
+        data: $('#answerFrom').serialize(),
         dataType: 'json',
-        url : "/answer/save",
-        success:function(data){
-            if(data.code=='0000'){
+        url: "/answer/save",
+        success: function (data) {
+            if (data.code == '0000') {
                 alert("あなたの得点は:" + data.data);
-                window.location.href ="/problems/list";
-            }else{
+                window.location.href = "/problems/list";
+            } else {
                 alert(data.msg);
             }
         }

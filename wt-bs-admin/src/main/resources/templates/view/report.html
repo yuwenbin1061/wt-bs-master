@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <!--错误答案汇总表-->
-                            <table id="error-table"></table>
+                            <table id="fail-table"></table>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,9 @@
 
     <script>
         jQuery(document).ready(function() {
-            initTable();
+            initTable('#right-table','getRightList');
+            initTable('#incomplete-table', 'getIncompleteList');
+            initTable('#fail-table', 'getFailList');
         });
     </script>
 </div>
