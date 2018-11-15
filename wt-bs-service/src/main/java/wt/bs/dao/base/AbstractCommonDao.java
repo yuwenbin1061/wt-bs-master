@@ -316,6 +316,7 @@ public abstract class AbstractCommonDao<M extends Criteria, C extends M, PK> ext
         int count = this.count(this.sql_count, modelQuery);
         page.setTotal(count);
         if(count == 0) {
+            page.setRows(new ArrayList<>());
             return page;
         } else {
             page.setRows(this.findList4Offset(this.sql_select, modelQuery,offset, limit));

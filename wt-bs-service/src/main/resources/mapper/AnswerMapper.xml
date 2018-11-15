@@ -84,6 +84,12 @@
 		<if test="failAnswer != null and failAnswer != ''">
 			and failAnswer = #{failAnswer,jdbcType=VARCHAR}
 		</if>
+		<if test="fromDate != null and fromDate != ''">
+			<![CDATA[ and create_time >= #{fromDate} ]]>
+		</if>
+		<if test="toDate != null and toDate != ''">
+			<![CDATA[ and create_time < #{toDate} ]]>
+		</if>
 	</sql>
 
 	<select id="selectAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria" resultMap="answerMap">

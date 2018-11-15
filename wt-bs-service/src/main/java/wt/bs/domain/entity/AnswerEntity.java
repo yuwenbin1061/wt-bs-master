@@ -58,7 +58,7 @@ public class AnswerEntity extends BaseEntityBean {
 	/**
 	 * 起始时间
 	 */
-	private String formDate;
+	private String fromDate;
 
 	/**
 	 * 终止时间
