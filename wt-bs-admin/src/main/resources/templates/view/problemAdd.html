@@ -6,9 +6,6 @@
       layout:decorator="~{view/common/common}">
 
 <div class="centerView" data-type="widgets" th:fragment="content">
-
-</div>
-<div class="centerView" data-type="widgets" th:fragment="content">
     <!-- 内容区域 -->
     <div class="tpl-content-wrapper">
         <div class="tpl-login">
@@ -17,24 +14,38 @@
                 <span class="tpl-login-content-info">
               </span>
                 <form class="am-form tpl-form-line-form" id="problemFrom">
-                    <input type="hidden" class="tpl-form-input" name="batchNo" id="batchNo" th:value="${batchNo}" hidden>
+                    <input type="hidden" class="tpl-form-input" name="batchNo" id="batchNo" th:value="${batchNo}"
+                           hidden>
 
-                    <div class="am-form-group">
+                    <div class="am-form-group am-u-lg-6">
+                        <label for="name">テキスト名</label>
+                        <div class="am-input-group">
+                            <input type="text" class="am-form-field" id="name" name="name" placeholder="テキスト名" readonly>
+                            <span class="am-input-group-btn">
+                                <button id="doc-prompt-toggle" class="am-btn am-btn-primary" type="button">テキスト名修正</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-u-lg-12">
+                        <label for="descs">テキスト</label>
                         <textarea class="" rows="12" id="descs" name="descs" placeholder="テキスト"></textarea>
                     </div>
+                    <!--<div class="am-form-group">-->
+                    <!--<input type="text" class="tpl-form-input" name="score" id="score" placeholder="完全一致の点数" required>-->
+                    <!--</div>-->
+                    <!--<div class="am-form-group">-->
+                    <!--<input type="text" class="tpl-form-input" name="partScore" id="partScore" placeholder="部分一致の点数" required>-->
+                    <!--</div>-->
                     <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" name="score" id="score" placeholder="完全一致の点数" required>
+                        <button type="button" onclick="addProblem()"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">
+                            保存、次の問題へ
+                        </button>
                     </div>
                     <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" name="partScore" id="partScore" placeholder="部分一致の点数" required>
-                    </div>
-                    <div class="am-form-group">
-                        <button type="button"  onclick="addProblem()"
-                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">保存、次の問題へ</button>
-                    </div>
-                    <div class="am-form-group">
-                        <button type="button"  onclick="complete()"
-                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">終わる</button>
+                        <button type="button" onclick="complete()"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">終わる
+                        </button>
                     </div>
                 </form>
             </div>
@@ -43,8 +54,22 @@
     <script th:src="@{/js/problems.js}"></script>
 
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             initTable();
+        });
+
+        $(function() {
+            $('#doc-prompt-toggle').on('click', function() {
+                $('#my-prompt').modal({
+                    relatedTarget: this,
+                    onConfirm: function(e) {
+                        alert('你输入的是：' + e.data || '')
+                    },
+                    onCancel: function(e) {
+                        alert('不想说!');
+                    }
+                });
+            });
         });
     </script>
 </div>

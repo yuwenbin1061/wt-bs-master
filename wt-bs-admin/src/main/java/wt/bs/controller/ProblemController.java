@@ -100,8 +100,8 @@ public class ProblemController extends MgrBaseController{
             BsAssert.isBlank(params.getBatchNo(), "番号は間違っています");
             BsAssert.isBlank(params.getDescs(), "テキストを入力してください");
             BsAssert.notNull(params.getLevels(), "どのグループに対して質問しますか");
-            BsAssert.notNull(params.getScore(), "点数(完全一致)を入力してください");
-            BsAssert.notNull(params.getPartScore(), "点数(部分一致)を入力してください");
+            params.setScore(1L);
+            params.setPartScore(1L);
 
             if (!papersService.exist(params.getBatchNo())) {
                 PapersEntity entity = new PapersEntity();

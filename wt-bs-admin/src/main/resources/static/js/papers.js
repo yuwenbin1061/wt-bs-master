@@ -70,7 +70,7 @@ function queryParams(params) {
 
 // 查询
 function find(){
-    $("#table").bootstrapTable('selectPage', 1).bootstrapTable("refresh");
+    addProblem
 }
 
 
