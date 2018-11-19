@@ -34,14 +34,14 @@ function initTable() {
                 checkbox: true
             },
             {
-                field: 'batchNo',
-                title: '回答用紙の番号',
+                field: 'paperName',
+                title: '试卷名',
                 align: 'center',
                 valign: 'middle'
             },
             {
-                field: 'teacherCode',
-                title: '教師ID',
+                field: 'teacherName',
+                title: '教師名',
                 align: 'center',
                 valign: 'middle'
             },

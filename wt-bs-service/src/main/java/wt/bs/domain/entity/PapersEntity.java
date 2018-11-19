@@ -17,6 +17,11 @@ public class PapersEntity extends BaseEntityBean {
 	private String teacherCode;
 
 	/**
+	 * 教师姓名
+	 */
+	private String teacherName;
+
+	/**
 	 * 试卷名
 	 */
 	private String paperName;

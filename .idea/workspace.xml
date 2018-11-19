@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50177339-7aef-49e2-9b15-456c153b3d0c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/param/ProblemParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/param/ProblemParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problemAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problemAdd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/AnswerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/AnswerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -112,38 +105,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProblemController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java">
+      <file leaf-file-name="papers.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/papers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="122" column="48" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
+            <state relative-caret-position="450">
+              <caret line="33" column="156" selection-start-line="33" selection-start-column="142" selection-end-line="33" selection-end-column="156" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PapersService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="papers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PapersController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/PapersController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="37" column="84" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PapersService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="242">
+              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/report.js">
+      <file leaf-file-name="PapersEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="problemAdd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problemAdd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="22" column="123" selection-start-line="22" selection-start-column="123" selection-end-line="22" selection-end-column="123" />
+            <state relative-caret-position="300">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,8 +156,8 @@
       <file leaf-file-name="PapersDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/example/PapersDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="100">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -160,8 +165,8 @@
       <file leaf-file-name="AbstractCommonDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/base/AbstractCommonDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="50" column="29" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="29" />
+            <state relative-caret-position="301">
+              <caret line="320" column="16" lean-forward="true" selection-start-line="320" selection-start-column="16" selection-end-line="320" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2940#2941#0" expanded="true" />
@@ -175,11 +180,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PapersMapper.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PapersMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="58" lean-forward="true" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+            <state relative-caret-position="200">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -198,7 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>problemId</find>
       <find>tpl-form-input</find>
       <find>selectMaxStudentCode</find>
       <find>getIsShow</find>
@@ -215,7 +219,6 @@
       <find>update_time</find>
       <find>logbacj</find>
       <find>select</find>
-      <find>where-all-condition</find>
       <find>bootstrapTable</find>
       <find>$(&quot;#table&quot;).bootstrapTable('selectPage', 1).bootstrapTable(&quot;refresh&quot;);</find>
       <find>Levels</find>
@@ -228,6 +231,8 @@
       <find>sys_version</find>
       <find>update</find>
       <find>问题008</find>
+      <find>select-all-column</find>
+      <find>where-all-condition</find>
     </findStrings>
     <replaceStrings>
       <replace>`level`</replace>
@@ -286,20 +291,20 @@
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/criteria/AnswerCriteria.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/application-dev.properties" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/AnswerMapper.xml" />
-        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.less" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/param/ProblemParams.java" />
-        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/base/AbstractCommonDao.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/AnswerEntity.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" />
-        <option value="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problemAdd.html" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" />
+        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java" />
+        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" />
+        <option value="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml" />
       </list>
     </option>
   </component>
@@ -884,7 +889,7 @@
       <workItem from="1542498030478" duration="114000" />
       <workItem from="1542510691125" duration="10359000" />
       <workItem from="1542557253184" duration="2605000" />
-      <workItem from="1542637078930" duration="4901000" />
+      <workItem from="1542637078930" duration="6319000" />
     </task>
     <task id="LOCAL-00001" summary="css样式切换">
       <created>1535958460451</created>
@@ -1103,11 +1108,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542517941423</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="添加试卷名称：逻辑">
+      <created>1542642302769</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1542642302769</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201278000" />
+    <option name="totallyTimeSpent" value="202696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1185,7 +1197,8 @@
     <MESSAGE value="网页添加日期" />
     <MESSAGE value="日期筛选" />
     <MESSAGE value="添加试卷名称：ui设计" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加试卷名称：ui设计" />
+    <MESSAGE value="添加试卷名称：逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加试卷名称：逻辑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1384,27 +1397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/PapersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/papers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="33" column="156" selection-start-line="33" selection-start-column="142" selection-end-line="33" selection-end-column="156" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answerAdd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1520,43 +1512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/example/PapersDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/boot/spring-boot-actuator/1.5.7.RELEASE/spring-boot-actuator-1.5.7.RELEASE.jar!/org/springframework/boot/actuate/autoconfigure/AuditAutoConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/base/AbstractCommonDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2940#2941#0" expanded="true" />
-            <element signature="e#3003#3004#0" expanded="true" />
-            <element signature="e#4064#4065#0" expanded="true" />
-            <element signature="e#4132#4133#0" expanded="true" />
-            <element signature="e#10175#10176#0" expanded="true" />
-            <element signature="e#10243#10244#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1588,13 +1547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="58" lean-forward="true" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -1602,10 +1554,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/papers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" column="156" selection-start-line="33" selection-start-column="142" selection-end-line="33" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/example/PapersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/base/AbstractCommonDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="320" column="16" lean-forward="true" selection-start-line="320" selection-start-column="16" selection-end-line="320" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2940#2941#0" expanded="true" />
+            <element signature="e#3003#3004#0" expanded="true" />
+            <element signature="e#4064#4065#0" expanded="true" />
+            <element signature="e#4132#4133#0" expanded="true" />
+            <element signature="e#10175#10176#0" expanded="true" />
+            <element signature="e#10243#10244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        <state relative-caret-position="242">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/PapersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="37" column="84" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/PapersMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
         </state>
       </provider>
     </entry>

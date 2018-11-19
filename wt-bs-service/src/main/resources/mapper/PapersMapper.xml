@@ -7,50 +7,51 @@
     
     <sql id="select-all-column">
 		SELECT
-			id AS id,
-			batch_no AS batchNo,
-			paper_name AS paperName,
-			teacher_code AS teacherCode,
-			yn AS yn,
-			sysVersion AS sysVersion,
-			create_time AS createTime,
-			update_time AS updateTime,
-			create_user AS createUser,
-			update_user AS updateUser
-		FROM papers
+			t1.id AS id,
+			t1.batch_no AS batchNo,
+			t1.paper_name AS paperName,
+			t1.teacher_code AS teacherCode,
+			t2.name AS teacherName,
+			t1.yn AS yn,
+			t1.sysVersion AS sysVersion,
+			t1.create_time AS createTime,
+			t1.update_time AS updateTime,
+			t1.create_user AS createUser,
+			t1.update_user AS updateUser
+		FROM papers t1 LEFT JOIN teacher t2 ON t1.teacher_code = t2.code
 	</sql>
 	
 	<sql id="where-all-condition">
 		1=1
 		<if test="id != null">
-			and id = #{id,jdbcType=BIGINT}
+			and t1.id = #{id,jdbcType=BIGINT}
 		</if>
 		<if test="batchNo != null and batchNo != ''">
-			and batch_no = #{batchNo,jdbcType=VARCHAR}
+			and t1.batch_no = #{batchNo,jdbcType=VARCHAR}
 		</if>
 		<if test="paperName != null and paperName != ''">
-			and paper_name = #{paperName,jdbcType=VARCHAR}
+			and t1.paper_name = #{paperName,jdbcType=VARCHAR}
 		</if>
 		<if test="teacherCode != null and teacherCode != ''">
-			and teacher_code = #{teacherCode,jdbcType=VARCHAR}
+			and t1.teacher_code = #{teacherCode,jdbcType=VARCHAR}
 		</if>
 		<if test="yn != null">
-			and yn = #{yn,jdbcType=TINYINT}
+			and t1.yn = #{yn,jdbcType=TINYINT}
 		</if>
 		<if test="sysVersion != null">
-			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+			and t1.sysVersion = #{sysVersion,jdbcType=BIGINT}
 		</if>
 		<if test="createTime != null">
-			and create_time = #{createTime,jdbcType=TIMESTAMP}
+			and t1.create_time = #{createTime,jdbcType=TIMESTAMP}
 		</if>
 		<if test="updateTime != null">
-			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+			and t1.update_time = #{updateTime,jdbcType=TIMESTAMP}
 		</if>
 		<if test="createUser != null and createUser != ''">
-			and create_user = #{createUser,jdbcType=VARCHAR}
+			and t1.create_user = #{createUser,jdbcType=VARCHAR}
 		</if>
 		<if test="updateUser != null and updateUser != ''">
-			and update_user = #{updateUser,jdbcType=VARCHAR}
+			and t1.update_user = #{updateUser,jdbcType=VARCHAR}
 		</if>
 	</sql>
 	
@@ -66,11 +67,11 @@
 	<select id="selectOnePapers" parameterType="java.lang.Long" resultMap="papersMap">
 		<include refid="select-all-column"/>
 		WHERE
-		id = #{id,jdbcType=BIGINT}
+		t1.id = #{id,jdbcType=BIGINT}
 	</select>
 	
 	<select id="countPapers" parameterType="wt.bs.domain.criteria.PapersCriteria" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM papers
+		SELECT COUNT(*) FROM papers t1
 		<where>
 		<include refid="where-all-condition"/>
 		</where>
@@ -228,13 +229,13 @@
 	</update>
 	
 	<delete id="deletePapers" parameterType="wt.bs.domain.criteria.PapersCriteria">
-		DELETE FROM papers
+		DELETE FROM papers t1
 		WHERE 
 		<include refid="where-all-condition"/>
 	</delete>
 	
 	<delete id="deleteOnePapers" parameterType="java.lang.Long">
-		DELETE FROM papers
+		DELETE FROM papers t1
 		WHERE
 		id = #{id,jdbcType=BIGINT}
 	</delete>
