@@ -80,7 +80,7 @@ public class ProblemController extends MgrBaseController{
     }
 
     @RequestMapping(value = "/problems/add")
-    public ModelAndView add(String batchNo) {
+    public ModelAndView add(String batchNo, String paperName) {
 
         if (StringUtils.isEmpty(batchNo)) {
             batchNo = "BN" + System.currentTimeMillis();
@@ -90,6 +90,7 @@ public class ProblemController extends MgrBaseController{
         view.addObject("identity", super.getIdentity());
         view.addObject("loginName", super.getUserName());
         view.addObject("batchNo", batchNo);
+        view.addObject("paperName", paperName);
         return view;
     }
 
@@ -100,19 +101,26 @@ public class ProblemController extends MgrBaseController{
             BsAssert.isBlank(params.getBatchNo(), "番号は間違っています");
             BsAssert.isBlank(params.getDescs(), "テキストを入力してください");
             BsAssert.notNull(params.getLevels(), "どのグループに対して質問しますか");
+            BsAssert.isBlank(params.getPaperName(), "请输入试卷名称");
             params.setScore(1L);
             params.setPartScore(1L);
 
+            PapersEntity papersEntity = new PapersEntity();
+            papersEntity.setBatchNo(params.getBatchNo());
+            papersEntity.setPaperName(params.getPaperName());
+
             if (!papersService.exist(params.getBatchNo())) {
-                PapersEntity entity = new PapersEntity();
-                entity.setBatchNo(params.getBatchNo());
                 TeacherEntity teacherEntity = teacherService.selectOne(super.getUserId());
-                entity.setTeacherCode(teacherEntity.getCode());
-                entity.setCreateTime(new Date());
-                entity.setUpdateTime(new Date());
-                entity.setUpdateUser(teacherEntity.getName());
-                entity.setCreateUser(teacherEntity.getName());
-                papersService.save(entity);
+                papersEntity.setTeacherCode(teacherEntity.getCode());
+                papersEntity.setCreateTime(new Date());
+                papersEntity.setUpdateTime(new Date());
+                papersEntity.setUpdateUser(teacherEntity.getName());
+                papersEntity.setCreateUser(teacherEntity.getName());
+                papersService.save(papersEntity);
+            }
+
+            if(!papersService.updatePaperName(papersEntity)){
+                return BaseResult.failure("失敗");
             }
 
             ProblemEntity entity = new ProblemEntity();

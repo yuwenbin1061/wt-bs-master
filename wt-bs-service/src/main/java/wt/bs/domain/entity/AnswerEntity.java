@@ -64,4 +64,9 @@ public class AnswerEntity extends BaseEntityBean {
 	 * 终止时间
 	 */
 	private String toDate;
+
+	/**
+	 * 学生姓名
+	 */
+	private String stdName;
 }

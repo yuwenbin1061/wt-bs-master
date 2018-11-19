@@ -18,11 +18,11 @@
                            hidden>
 
                     <div class="am-form-group am-u-lg-6">
-                        <label for="name">テキスト名</label>
+                        <label for="paper-name">テキスト名</label>
                         <div class="am-input-group">
-                            <input type="text" class="am-form-field" id="name" name="name" placeholder="テキスト名" readonly>
+                            <input type="text" class="am-form-field" id="paper-name" name="paperName" th:value="${paperName}" placeholder="テキスト名" readonly>
                             <span class="am-input-group-btn">
-                                <button id="doc-prompt-toggle" class="am-btn am-btn-primary" type="button">テキスト名修正</button>
+                                <button id="changeTestName" class="am-btn am-btn-primary" type="button">テキスト名修正</button>
                             </span>
                         </div>
                     </div>
@@ -59,15 +59,12 @@
         });
 
         $(function() {
-            $('#doc-prompt-toggle').on('click', function() {
-                $('#my-prompt').modal({
+            $('#changeTestName').on('click', function() {
+                $('#changeTestNamePrompt').modal({
                     relatedTarget: this,
                     onConfirm: function(e) {
-                        alert('你输入的是：' + e.data || '')
+                        $('#paper-name').val(e.data);
                     },
-                    onCancel: function(e) {
-                        alert('不想说!');
-                    }
                 });
             });
         });

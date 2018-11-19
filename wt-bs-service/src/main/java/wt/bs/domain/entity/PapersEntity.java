@@ -15,4 +15,9 @@ public class PapersEntity extends BaseEntityBean {
 	 * 教师编号T_1000开始
 	 */
 	private String teacherCode;
+
+	/**
+	 * 试卷名
+	 */
+	private String paperName;
 }

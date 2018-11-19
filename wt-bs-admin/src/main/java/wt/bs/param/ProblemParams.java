@@ -30,4 +30,9 @@ public class ProblemParams {
      * 批次号
      */
     private String batchNo;
+
+    /**
+     * 试卷名称
+     */
+    private String paperName;
 }

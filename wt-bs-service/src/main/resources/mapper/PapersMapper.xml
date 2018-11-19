@@ -9,6 +9,7 @@
 		SELECT
 			id AS id,
 			batch_no AS batchNo,
+			paper_name AS paperName,
 			teacher_code AS teacherCode,
 			yn AS yn,
 			sysVersion AS sysVersion,
@@ -26,6 +27,9 @@
 		</if>
 		<if test="batchNo != null and batchNo != ''">
 			and batch_no = #{batchNo,jdbcType=VARCHAR}
+		</if>
+		<if test="paperName != null and paperName != ''">
+			and paper_name = #{paperName,jdbcType=VARCHAR}
 		</if>
 		<if test="teacherCode != null and teacherCode != ''">
 			and teacher_code = #{teacherCode,jdbcType=VARCHAR}
@@ -77,6 +81,9 @@
 	<if test="batchNo != null">
 		batch_no,
 	</if>
+	<if test="paperName != null">
+		paper_name,
+	</if>
 	<if test="teacherCode != null">
 		teacher_code,
 	</if>
@@ -98,6 +105,9 @@
     <if test="batchNo != null">
     	#{batchNo,jdbcType=VARCHAR},
     </if>
+	<if test="paperName != null">
+		#{paperName,jdbcType=VARCHAR},
+	</if>
     <if test="teacherCode != null">
     	#{teacherCode,jdbcType=VARCHAR},
     </if>
@@ -125,6 +135,7 @@
 	</selectKey>
 	INSERT INTO papers (
 		batch_no,
+		paper_name,
 		teacher_code,
 		yn,
 		sysVersion,
@@ -136,6 +147,7 @@
 	<foreach collection="list" item="item" index="index" separator=",">
     (
 		#{item.batchNo,jdbcType=VARCHAR},
+		#{item.paperName,jdbcType=VARCHAR},
 		#{item.teacherCode,jdbcType=VARCHAR},
 		#{item.yn,jdbcType=TINYINT},
 		#{item.sysVersion,jdbcType=BIGINT},
@@ -156,6 +168,9 @@
     	<if test="teacherCode != null">
             teacher_code = #{teacherCode,jdbcType=VARCHAR},
     	</if>
+		<if test="paperName != null">
+			paper_name = #{paperName,jdbcType=VARCHAR},
+		</if>
     	<if test="yn != null">
             yn = #{yn,jdbcType=TINYINT},
     	</if>
@@ -171,7 +186,7 @@
     	<if test="updateUser != null">
             update_user = #{updateUser,jdbcType=VARCHAR},
     	</if>
-        sys_version = sys_version + 1,
+        sysVersion = sysVersion + 1,
         update_time =now()
 		</set>
 		WHERE 
@@ -203,7 +218,7 @@
 		<if test="item.updateUser != null">
 			update_user = #{item.updateUser,jdbcType=VARCHAR},
 		</if>
-		sys_version = sys_version + 1,
+			sysVersion = sysVersion + 1,
 		update_time =now()
 		</set>
 		WHERE 

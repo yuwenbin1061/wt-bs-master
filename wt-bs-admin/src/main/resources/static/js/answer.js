@@ -47,8 +47,8 @@ function initTable() {
                 checkbox: true
             },
             {
-                field: 'studentCode',
-                title: '学生番号',
+                field: 'stdName',
+                title: '学生姓名',
                 align: 'center',
                 valign: 'middle'
             },

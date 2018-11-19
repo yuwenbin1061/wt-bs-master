@@ -34,20 +34,8 @@ function initTable() {
                 checkbox: true
             },
             {
-                field: 'batchNo',
-                title: '回答用紙の番号',
-                align: 'center',
-                valign: 'middle'
-            },
-            {
                 field: 'descs',
                 title: 'テキスト',
-                align: 'center',
-                valign: 'middle'
-            },
-            {
-                field: 'score',
-                title: '点数',
                 align: 'center',
                 valign: 'middle'
             },
@@ -126,7 +114,7 @@ function addProblem() {
         success:function(data){
             if(data.code=='0000'){
                 alert("成功");
-                window.location.href ="/problems/add?batchNo=" + data.msg;
+                window.location.href ="/problems/add?batchNo=" + data.msg+"&paperName="+$('#paper-name').val();
             }else{
                 alert("失敗");
             }
