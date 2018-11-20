@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50177339-7aef-49e2-9b15-456c153b3d0c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problem.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/PapersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -111,11 +103,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+            <state relative-caret-position="71">
+              <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="1208" selection-start-line="1208" selection-end-line="1208" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="answer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -134,7 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tpl-form-input</find>
       <find>selectMaxStudentCode</find>
       <find>getIsShow</find>
       <find>oncontextmenu</find>
@@ -155,7 +167,6 @@
       <find>Levels</find>
       <find>paper</find>
       <find>centerView</find>
-      <find>tpl-content-wrapper</find>
       <find>addProblem</find>
       <find>generat</find>
       <find>problemFrom</find>
@@ -164,6 +175,8 @@
       <find>问题008</find>
       <find>select-all-column</find>
       <find>where-all-condition</find>
+      <find>tpl-content-wrapper</find>
+      <find>.theme-white .tpl-content-wrapper</find>
     </findStrings>
     <replaceStrings>
       <replace>`level`</replace>
@@ -187,7 +200,6 @@
       <list>
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/user/StudentService.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/AnswerService.java" />
-        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/index.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/common.js" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/ProblemService.java" />
@@ -200,7 +212,6 @@
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/user/DialectDao.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/dao/example/DialectDao.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/resources/mapper/DialectMapper.xml" />
-        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/403.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/login.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/sign_up.html" />
@@ -236,6 +247,8 @@
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" />
+        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html" />
+        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" />
       </list>
     </option>
   </component>
@@ -853,7 +866,7 @@
       <workItem from="1542498030478" duration="114000" />
       <workItem from="1542510691125" duration="10359000" />
       <workItem from="1542557253184" duration="2605000" />
-      <workItem from="1542637078930" duration="13911000" />
+      <workItem from="1542637078930" duration="14947000" />
     </task>
     <task id="LOCAL-00001" summary="css样式切换">
       <created>1535958460451</created>
@@ -1093,18 +1106,25 @@
       <option name="project" value="LOCAL" />
       <updated>1542731119704</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="汉化完成，隐藏学生的report">
+      <created>1542733223080</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1542733223080</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210288000" />
+    <option name="totallyTimeSpent" value="211324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5074627" side_tool="true" weight="0.41639698" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.4792111" side_tool="true" visible="true" weight="0.30744338" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.24360341" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info id="Capture Tool" order="6" />
@@ -1121,13 +1141,14 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32901832" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.22228146" weight="0.32470334" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.55277187" visible="true" weight="0.30744338" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5207889" visible="true" weight="0.30744338" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32901832" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.122977346" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22814499" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22814499" />
       <window_info anchor="bottom" id="Problems" order="14" weight="0.32901832" />
       <window_info anchor="right" id="Bean Validation" order="10" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32901832" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1135,7 +1156,6 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32901832" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3297568" />
     </layout>
   </component>
@@ -1178,7 +1198,8 @@
     <MESSAGE value="添加试卷名称：逻辑" />
     <MESSAGE value="显示试卷名与教师名称" />
     <MESSAGE value="问题统计增加学生" />
-    <option name="LAST_COMMIT_MESSAGE" value="问题统计增加学生" />
+    <MESSAGE value="汉化完成，隐藏学生的report" />
+    <option name="LAST_COMMIT_MESSAGE" value="汉化完成，隐藏学生的report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1227,13 +1248,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="2804" column="52" selection-start-line="2804" selection-start-column="52" selection-end-line="2804" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/DialectService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1503,13 +1517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problem.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1538,13 +1545,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1596,6 +1596,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="31" column="71" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="1208" selection-start-line="1208" selection-end-line="1208" selection-end-column="22" />
         </state>
       </provider>
     </entry>
