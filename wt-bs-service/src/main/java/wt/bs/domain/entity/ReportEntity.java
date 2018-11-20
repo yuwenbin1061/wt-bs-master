@@ -15,4 +15,9 @@ public class ReportEntity {
      */
     private Integer count;
 
+    /**
+     * 学生姓名
+     */
+    private String stdName;
+
 }

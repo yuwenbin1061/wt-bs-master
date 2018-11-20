@@ -7,88 +7,89 @@
 
 	<sql id="select-all-column">
 		SELECT
-		id AS id,
-		batch_no AS batchNo,
-		problem_id AS problemId,
-		student_code AS studentCode,
-		levels AS levels,
-		descs AS descs,
-		answer AS answer,
-		score AS score,
-		current_score AS currentScore,
-		yn AS yn,
-		sysVersion AS sysVersion,
-		create_time AS createTime,
-		update_time AS updateTime,
-		create_user AS createUser,
-		update_user AS updateUser,
-		doingAnswer AS doingAnswer,
-		doneAnswer AS doneAnswer,
-		failAnswer AS failAnswer
-		FROM answer
+		t1.id AS id,
+		t1.batch_no AS batchNo,
+		t1.problem_id AS problemId,
+		t1.student_code AS studentCode,
+		t2.name AS stdName,
+		t1.levels AS levels,
+		t1.descs AS descs,
+		t1.answer AS answer,
+		t1.score AS score,
+		t1.current_score AS currentScore,
+		t1.yn AS yn,
+		t1.sysVersion AS sysVersion,
+		t1.create_time AS createTime,
+		t1.update_time AS updateTime,
+		t1.create_user AS createUser,
+		t1.update_user AS updateUser,
+		t1.doingAnswer AS doingAnswer,
+		t1.doneAnswer AS doneAnswer,
+		t1.failAnswer AS failAnswer
+		FROM answer t1 LEFT JOIN student t2 ON t1.student_code = t2.code
 	</sql>
 
 	<sql id="where-all-condition">
 		1=1
 		<if test="id != null">
-			and id = #{id,jdbcType=BIGINT}
+			and t1.id = #{id,jdbcType=BIGINT}
 		</if>
 		<if test="batchNo != null and batchNo != ''">
-			and batch_no = #{batchNo,jdbcType=VARCHAR}
+			and t1.batch_no = #{batchNo,jdbcType=VARCHAR}
 		</if>
 		<if test="problemId != null">
-			and problem_id = #{problemId,jdbcType=BIGINT}
+			and t1.problem_id = #{problemId,jdbcType=BIGINT}
 		</if>
 		<if test="studentCode != null and studentCode != ''">
-			and student_code = #{studentCode,jdbcType=VARCHAR}
+			and t1.student_code = #{studentCode,jdbcType=VARCHAR}
 		</if>
 		<if test="levels != null">
-			and levels = #{levels,jdbcType=TINYINT}
+			and t1.levels = #{levels,jdbcType=TINYINT}
 		</if>
 		<if test="descs != null and descs != ''">
-			and descs = #{descs,jdbcType=VARCHAR}
+			and t1.descs = #{descs,jdbcType=VARCHAR}
 		</if>
 		<if test="answer != null and answer != ''">
-			and answer = #{answer,jdbcType=VARCHAR}
+			and t1.answer = #{answer,jdbcType=VARCHAR}
 		</if>
 		<if test="score != null">
-			and score = #{score,jdbcType=BIGINT}
+			and t1.score = #{score,jdbcType=BIGINT}
 		</if>
 		<if test="currentScore != null">
-			and current_score = #{currentScore,jdbcType=BIGINT}
+			and t1.current_score = #{currentScore,jdbcType=BIGINT}
 		</if>
 		<if test="yn != null">
-			and yn = #{yn,jdbcType=TINYINT}
+			and t1.yn = #{yn,jdbcType=TINYINT}
 		</if>
 		<if test="sysVersion != null">
-			and sysVersion = #{sysVersion,jdbcType=BIGINT}
+			and t1.sysVersion = #{sysVersion,jdbcType=BIGINT}
 		</if>
 		<if test="createTime != null">
-			and create_time = #{createTime,jdbcType=TIMESTAMP}
+			and t1.create_time = #{createTime,jdbcType=TIMESTAMP}
 		</if>
 		<if test="updateTime != null">
-			and update_time = #{updateTime,jdbcType=TIMESTAMP}
+			and t1.update_time = #{updateTime,jdbcType=TIMESTAMP}
 		</if>
 		<if test="createUser != null and createUser != ''">
-			and create_user = #{createUser,jdbcType=VARCHAR}
+			and t1.create_user = #{createUser,jdbcType=VARCHAR}
 		</if>
 		<if test="updateUser != null and updateUser != ''">
-			and update_user = #{updateUser,jdbcType=VARCHAR}
+			and t1.update_user = #{updateUser,jdbcType=VARCHAR}
 		</if>
 		<if test="doingAnswer != null and doingAnswer != ''">
-			and doingAnswer = #{doingAnswer,jdbcType=VARCHAR}
+			and t1.doingAnswer = #{doingAnswer,jdbcType=VARCHAR}
 		</if>
 		<if test="doneAnswer != null and doneAnswer != ''">
-			and doneAnswer = #{doneAnswer,jdbcType=VARCHAR}
+			and t1.doneAnswer = #{doneAnswer,jdbcType=VARCHAR}
 		</if>
 		<if test="failAnswer != null and failAnswer != ''">
-			and failAnswer = #{failAnswer,jdbcType=VARCHAR}
+			and t1.failAnswer = #{failAnswer,jdbcType=VARCHAR}
 		</if>
 		<if test="fromDate != null and fromDate != ''">
-			<![CDATA[ and create_time >= #{fromDate} ]]>
+			<![CDATA[ and t1.create_time >= #{fromDate} ]]>
 		</if>
 		<if test="toDate != null and toDate != ''">
-			<![CDATA[ and create_time < #{toDate} ]]>
+			<![CDATA[ and t1.create_time < #{toDate} ]]>
 		</if>
 	</sql>
 
@@ -104,11 +105,11 @@
 	<select id="selectOneAnswer" parameterType="java.lang.Long" resultMap="answerMap">
 		<include refid="select-all-column"/>
 		WHERE
-		id = #{id,jdbcType=BIGINT}
+		t1.id = #{id,jdbcType=BIGINT}
 	</select>
 
 	<select id="countAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM answer
+		SELECT COUNT(*) FROM answer t1
 		<where>
 			<include refid="where-all-condition"/>
 		</where>
@@ -381,7 +382,7 @@
 	</update>
 
 	<delete id="deleteAnswer" parameterType="wt.bs.domain.criteria.AnswerCriteria">
-		DELETE FROM answer
+		DELETE FROM answer t1
 		WHERE
 		<include refid="where-all-condition"/>
 	</delete>

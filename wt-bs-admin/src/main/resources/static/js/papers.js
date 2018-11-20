@@ -65,12 +65,13 @@ function initTable() {
 //查询条件
 function queryParams(params) {
     params.batchNo = $("#batchNo").val();
+    params.paperName = $("#paperName").val();
     return params;
 }
 
 // 查询
 function find(){
-    addProblem
+    $("#table").bootstrapTable('selectPage', 1).bootstrapTable("refresh");
 }
 
 

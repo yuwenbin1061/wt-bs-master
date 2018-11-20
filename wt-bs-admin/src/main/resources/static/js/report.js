@@ -62,6 +62,12 @@ function initTable(tableId, action) {
                 align: 'center',
                 valign: 'middle',
             },
+            {
+                field: 'stdName',
+                title: '学生姓名',
+                align: 'center',
+                valign: 'middle',
+            },
         ]
 
         // ]
