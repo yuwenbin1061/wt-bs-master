@@ -40,10 +40,12 @@ public class ProblemController extends MgrBaseController{
 
     @RequestMapping(value = "/problems/list")
     public ModelAndView list(String batchNo) {
+        PapersEntity paper =  papersService.findBatchNo(batchNo);
         ModelAndView view = new ModelAndView("view/problem");
         view.addObject("loginName", super.getUserName());
         view.addObject("identity", super.getIdentity());
         view.addObject("batchNo", batchNo);
+        view.addObject("paperName", paper.getPaperName());
         return view;
     }
 

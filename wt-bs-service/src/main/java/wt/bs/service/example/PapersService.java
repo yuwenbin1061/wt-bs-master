@@ -27,6 +27,12 @@ public class PapersService {
         return papersDao.findOne(criteria) != null;
     }
 
+    public PapersEntity findBatchNo(String batchNo) {
+        PapersCriteria criteria = new PapersCriteria();
+        criteria.setBatchNo(batchNo);
+        return papersDao.findOne(criteria);
+    }
+
     public boolean updatePaperName(PapersEntity entity) {
         PapersCriteria criteria = new PapersCriteria();
         criteria.setBatchNo(entity.getBatchNo());

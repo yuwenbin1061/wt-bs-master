@@ -43,10 +43,6 @@ function initTable() {
             // ],
             // [
             {
-                field: '',
-                checkbox: true
-            },
-            {
                 field: 'stdName',
                 title: '学生姓名',
                 align: 'center',

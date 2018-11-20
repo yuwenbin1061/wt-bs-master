@@ -30,10 +30,6 @@ function initTable() {
         },
         columns: [
             {
-                field: '',
-                checkbox: true
-            },
-            {
                 field: 'descs',
                 title: 'テキスト',
                 align: 'center',

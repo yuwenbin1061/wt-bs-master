@@ -30,10 +30,6 @@ function initTable() {
         },
         columns: [
             {
-                field: '',
-                checkbox: true
-            },
-            {
                 field: 'paperName',
                 title: '试卷名',
                 align: 'center',
