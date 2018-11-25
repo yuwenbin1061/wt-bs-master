@@ -31,7 +31,7 @@ function initTable() {
         columns: [
             {
                 field: 'paperName',
-                title: '试卷名',
+                title: '回答用紙名',
                 align: 'center',
                 valign: 'middle'
             },

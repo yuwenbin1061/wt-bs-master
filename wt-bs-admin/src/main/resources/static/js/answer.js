@@ -44,19 +44,19 @@ function initTable() {
             // [
             {
                 field: 'stdName',
-                title: '学生姓名',
+                title: '学生名',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 field: 'answer',
-                title: '回答',
+                title: '学生の解答',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 field: 'doingAnswer',
-                title: '未回答',
+                title: '未回答カモ！',
                 align: 'center',
                 valign: 'middle',
                 cellStyle: function cellStyle(value, row, index) {
@@ -70,13 +70,13 @@ function initTable() {
             },
             {
                 field: 'doneAnswer',
-                title: '正しい回答',
+                title: '正しいカモ！',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 field: 'failAnswer',
-                title: '間違った回答',
+                title: '間違ったカモ！',
                 align: 'center',
                 valign: 'middle'
             }
@@ -111,7 +111,7 @@ function addProblem() {
         url: "/answer/save",
         success: function (data) {
             if (data.code == '0000') {
-                alert("あなたの得点は:" + data.data);
+                alert("解答が保存されました！");
                 window.location.href = "/problems/list";
             } else {
                 alert(data.msg);

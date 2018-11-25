@@ -43,7 +43,7 @@ function initTable(tableId, action) {
             // ],
             // [
             {
-                title: '序号',
+                title: '番号',
                 align: 'center',
                 valign: 'middle',
                 formatter: function (value, row, index) {
@@ -52,19 +52,19 @@ function initTable(tableId, action) {
             },
             {
                 field: 'answer',
-                title: '正确答案',
+                title: '解答',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 field: 'count',
-                title: '次数',
+                title: '人数',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 field: 'stdName',
-                title: '学生姓名',
+                title: '学生名',
                 align: 'center',
                 valign: 'middle',
             },
@@ -97,7 +97,7 @@ function addProblem() {
         url: "/answer/save",
         success: function (data) {
             if (data.code == '0000') {
-                alert("あなたの得点は:" + data.data);
+                alert("解答が保存されました！");
                 window.location.href = "/problems/list";
             } else {
                 alert(data.msg);
