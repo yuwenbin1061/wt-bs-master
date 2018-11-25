@@ -13,12 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import wt.bs.controller.base.MgrBaseController;
 import wt.bs.domain.base.Page;
 import wt.bs.domain.criteria.AnswerCriteria;
+import wt.bs.domain.entity.AnswerDetialEntity;
 import wt.bs.domain.entity.AnswerEntity;
 import wt.bs.domain.entity.ProblemEntity;
 import wt.bs.domain.entity.StudentEntity;
 import wt.bs.exception.BsException;
 import wt.bs.result.BaseResult;
 import wt.bs.service.example.AnswerService;
+import wt.bs.service.example.DialectService;
 import wt.bs.service.example.ProblemService;
 import wt.bs.service.user.StudentService;
 
@@ -35,11 +37,14 @@ public class AnswerController extends MgrBaseController {
     private StudentService studentService;
     @Autowired
     private ProblemService problemService;
+    @Autowired
+    private DialectService dialectSrvice;
 
     @RequestMapping(value = "/list")
     public ModelAndView answer(Long id) {
 
         ProblemEntity problemEntity = problemService.selectOne(id);
+        List<AnswerDetialEntity> answerDetialList = dialectSrvice.getAnswerDetials(problemEntity.getAnswer().split(","));
 
         ModelAndView view = new ModelAndView("view/answer");
         view.addObject("loginName", super.getUserName());
@@ -47,6 +52,7 @@ public class AnswerController extends MgrBaseController {
         view.addObject("identity", super.getIdentity());
         view.addObject("descs", problemEntity.getDescs());
         view.addObject("answer", problemEntity.getAnswer());
+        view.addObject("answerDetials", answerDetialList);
         return view;
     }
 
