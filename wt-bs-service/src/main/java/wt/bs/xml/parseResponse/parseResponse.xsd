@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:yahoo:jp:jlp:DAService" 
+            targetNamespace="urn:yahoo:jp:jlp:DAService"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+            attributeFormDefault="unqualified" 
+            elementFormDefault="qualified">
+  <xs:element name="ResultSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Result" type="ResultType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResultType">
+    <xs:sequence>
+      <xs:element name="ChunkList" type="ChunkListType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChunkListType">
+    <xs:sequence>
+      <xs:element name="Chunk" type="ChunkType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChunkType">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:integer"/>
+      <xs:element name="Dependency" type="xs:integer"/>
+      <xs:element name="MorphemList" type="MorphemListType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MorphemListType">
+    <xs:sequence>
+      <xs:element name="Morphem" type="MorphemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MorphemType">
+    <xs:sequence>
+      <xs:element name="Surface" type="xs:string"/>
+      <xs:element name="Reading" type="xs:string"/>
+      <xs:element name="Baseform" type="xs:string"/>
+      <xs:element name="POS" type="xs:string"/>
+      <xs:element name="Feature" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+<!-- ws3013.yjdn.kks.yahoo.co.jp Sun Dec  2 12:59:11 JST 2018 -->

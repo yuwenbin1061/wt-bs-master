@@ -5,5 +5,12 @@
     <file url="file://$PROJECT_DIR$/wt-bs-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wt-bs-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/wt-bs-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/mypackage/ResultSet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/ChunkListType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/ChunkType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/MorphemListType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/MorphemType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/ResultSet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/ResultType.java" charset="UTF-8" />
   </component>
 </project>

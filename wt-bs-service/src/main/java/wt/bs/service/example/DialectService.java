@@ -1,14 +1,16 @@
 package wt.bs.service.example;
 
 
-import com.alibaba.druid.util.StringUtils;
-import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import wt.bs.dao.example.DialectDao;
 import wt.bs.domain.criteria.DialectCriteria;
 import wt.bs.domain.entity.AnswerDetialEntity;
 import wt.bs.domain.entity.DialectEntity;
+import wt.bs.xml.parseResponse.ResultSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,17 @@ public class DialectService {
     private DialectDao dialectDao;
 
     public String getAnswer(String problems) {
+
+        RestTemplate restTemplate = new RestTemplate();
+        String url= "https://jlp.yahooapis.jp/DAService/V1/parse";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        LinkedMultiValueMap body = new LinkedMultiValueMap();
+        body.add("appid","dj00aiZpPXd6VkxoajE1dGp1OCZzPWNvbnN1bWVyc2VjcmV0Jng9YmY-");
+        body.add("sentence","明日あなたは行かへん");
+        HttpEntity entity = new HttpEntity(body, headers);
+        ResponseEntity<ResultSet> resultSet = restTemplate.exchange(url, HttpMethod.POST, entity, ResultSet.class);
+
         List<DialectEntity> list = dialectDao.selectList(new DialectCriteria());
         StringBuilder answers = new StringBuilder();
         int i = 0;
