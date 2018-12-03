@@ -1,6 +1,8 @@
 package wt.bs.service.example;
 
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -23,26 +25,26 @@ public class DialectService {
 
     public String getAnswer(String problems) {
 
-        RestTemplate restTemplate = new RestTemplate();
-        String url= "https://jlp.yahooapis.jp/DAService/V1/parse";
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        LinkedMultiValueMap body = new LinkedMultiValueMap();
-        body.add("appid","dj00aiZpPXd6VkxoajE1dGp1OCZzPWNvbnN1bWVyc2VjcmV0Jng9YmY-");
-        body.add("sentence","明日あなたは行かへん");
-        HttpEntity entity = new HttpEntity(body, headers);
-        ResponseEntity<ResultSet> resultSet = restTemplate.exchange(url, HttpMethod.POST, entity, ResultSet.class);
-
         List<DialectEntity> list = dialectDao.selectList(new DialectCriteria());
         StringBuilder answers = new StringBuilder();
         int i = 0;
         for (DialectEntity dialect : list) {
             if (problems.contains(dialect.getDialect())) {
-                if (i==0){
+                if (i == 0) {
                     answers.append(dialect.getDialect());
                     i++;
+                } else {
+                    answers.append(",").append(dialect.getDialect());
                 }
-                answers.append(",").append(dialect.getDialect());
+            }
+
+            if (problems.contains(dialect.getKanji())) {
+                if (i == 0) {
+                    answers.append(dialect.getKanji());
+                    i++;
+                } else {
+                    answers.append(",").append(dialect.getKanji());
+                }
             }
         }
 
@@ -55,7 +57,15 @@ public class DialectService {
         for (String answer : answers){
 
             criteria.setDialect(answer);
+            criteria.setKanji(null);
             List<DialectEntity> list = dialectDao.selectList(criteria);
+
+            if (CollectionUtils.isEmpty(list))
+            {
+                criteria.setDialect(null);
+                criteria.setKanji(answer);
+                list = dialectDao.selectList(criteria);
+            }
 
             AnswerDetialEntity answerDetial = new AnswerDetialEntity();
             answerDetial.setDialect(list.get(0).getDialect());
@@ -66,5 +76,22 @@ public class DialectService {
         }
 
         return resultList;
+    }
+
+    public void getAnswerByParseApi() {
+        // 请求api分析句子
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://jlp.yahooapis.jp/DAService/V1/parse";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        LinkedMultiValueMap body = new LinkedMultiValueMap();
+        body.add("appid", "dj00aiZpPXd6VkxoajE1dGp1OCZzPWNvbnN1bWVyc2VjcmV0Jng9YmY-");
+        body.add("sentence", "明日あなたは行かへん");
+        HttpEntity entity = new HttpEntity(body, headers);
+        // 得到分析结果
+        ResponseEntity<ResultSet> resultSet = restTemplate.exchange(url, HttpMethod.POST, entity, ResultSet.class);
+
+        // 得到方言列表
+        List<DialectEntity> list = dialectDao.selectList(new DialectCriteria());
     }
 }
