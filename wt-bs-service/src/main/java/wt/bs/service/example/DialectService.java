@@ -4,15 +4,13 @@ package wt.bs.service.example;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.web.client.RestTemplate;
+import wt.bs.common.SpecialDialectEnum;
+import wt.bs.common.SpecialDialectHandler;
 import wt.bs.dao.example.DialectDao;
 import wt.bs.domain.criteria.DialectCriteria;
 import wt.bs.domain.entity.AnswerDetialEntity;
 import wt.bs.domain.entity.DialectEntity;
-import wt.bs.xml.parseResponse.ResultSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +26,21 @@ public class DialectService {
         List<DialectEntity> list = dialectDao.selectList(new DialectCriteria());
         StringBuilder answers = new StringBuilder();
         int i = 0;
+
+        // 先判断特殊词汇
+        List<String> specialAnswers = SpecialDialectHandler.getAnswers(problems);
+        if (CollectionUtils.isNotEmpty(specialAnswers)){
+            for (String specialAnswer : specialAnswers) {
+                if (i == 0) {
+                    answers.append(specialAnswer);
+                    i++;
+                } else {
+                    answers.append(",").append(specialAnswer);
+                }
+            }
+        }
+
+        // 再判断数据库中固定方言
         for (DialectEntity dialect : list) {
             if (problems.contains(dialect.getDialect())) {
                 if (i == 0) {
@@ -56,42 +69,43 @@ public class DialectService {
         DialectCriteria criteria = new DialectCriteria();
         for (String answer : answers){
 
-            criteria.setDialect(answer);
-            criteria.setKanji(null);
-            List<DialectEntity> list = dialectDao.selectList(criteria);
+            Boolean isSpecial = false;
 
-            if (CollectionUtils.isEmpty(list))
+            for (SpecialDialectEnum dialectTarget : SpecialDialectEnum.values())
             {
-                criteria.setDialect(null);
-                criteria.setKanji(answer);
-                list = dialectDao.selectList(criteria);
+                if (StringUtils.equals(answer, dialectTarget.getDialect()))
+                {
+                    isSpecial = true;
+                    AnswerDetialEntity answerDetial = new AnswerDetialEntity();
+                    answerDetial.setDialect(dialectTarget.getDialect());
+                    answerDetial.setKanji(null);
+                    answerDetial.setNominal(dialectTarget.getNominal());
+                    answerDetial.setTranslation(dialectTarget.getTranslation());
+                    resultList.add(answerDetial);
+                }
             }
 
-            AnswerDetialEntity answerDetial = new AnswerDetialEntity();
-            answerDetial.setDialect(list.get(0).getDialect());
-            answerDetial.setKanji(list.get(0).getKanji());
-            answerDetial.setNominal(list.get(0).getNominal());
-            answerDetial.setTranslation(list.get(0).getTranslation());
-            resultList.add(answerDetial);
+            if (!isSpecial) {
+                criteria.setDialect(answer);
+                criteria.setKanji(null);
+                List<DialectEntity> list = dialectDao.selectList(criteria);
+
+                if (CollectionUtils.isEmpty(list))
+                {
+                    criteria.setDialect(null);
+                    criteria.setKanji(answer);
+                    list = dialectDao.selectList(criteria);
+                }
+
+                AnswerDetialEntity answerDetial = new AnswerDetialEntity();
+                answerDetial.setDialect(list.get(0).getDialect());
+                answerDetial.setKanji(list.get(0).getKanji());
+                answerDetial.setNominal(list.get(0).getNominal());
+                answerDetial.setTranslation(list.get(0).getTranslation() + "（例文：" + list.get(0).getExample() + "）");
+                resultList.add(answerDetial);
+            }
         }
 
         return resultList;
-    }
-
-    public void getAnswerByParseApi() {
-        // 请求api分析句子
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "https://jlp.yahooapis.jp/DAService/V1/parse";
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        LinkedMultiValueMap body = new LinkedMultiValueMap();
-        body.add("appid", "dj00aiZpPXd6VkxoajE1dGp1OCZzPWNvbnN1bWVyc2VjcmV0Jng9YmY-");
-        body.add("sentence", "明日あなたは行かへん");
-        HttpEntity entity = new HttpEntity(body, headers);
-        // 得到分析结果
-        ResponseEntity<ResultSet> resultSet = restTemplate.exchange(url, HttpMethod.POST, entity, ResultSet.class);
-
-        // 得到方言列表
-        List<DialectEntity> list = dialectDao.selectList(new DialectCriteria());
     }
 }
