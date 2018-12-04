@@ -37,7 +37,7 @@ public enum SpecialDialectEnum {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
 
             for (ChunkType chunk : chunkList){
-                if (SpecialDialectHandler.isDL03(chunk)){
+                if (SpecialDialectHandler.isDL03(chunk, this.getNominal())){
                     return true;
                 }
             }
@@ -50,7 +50,7 @@ public enum SpecialDialectEnum {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
 
             for (ChunkType chunk : chunkList){
-                if (SpecialDialectHandler.isDL04(chunk)){
+                if (SpecialDialectHandler.isDL04(chunk, this.getNominal())){
                     return true;
                 }
             }
@@ -63,7 +63,7 @@ public enum SpecialDialectEnum {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
 
             for (ChunkType chunk : chunkList){
-                if (SpecialDialectHandler.isDL05(chunk)){
+                if (SpecialDialectHandler.isDL05(chunk, this.getNominal())){
                     return true;
                 }
             }
@@ -76,7 +76,85 @@ public enum SpecialDialectEnum {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
 
             for (ChunkType chunk : chunkList){
-                if (SpecialDialectHandler.isDL06(chunk)){
+                if (SpecialDialectHandler.isDL06(chunk, this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL07("ねん","のだ（例文：めっちゃ楽しいねん）", "終助詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isAuxiliary(chunk, this.getDialect(), this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL08("ん","の（例文：何なん、どうしたん）", "助動詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isDL08(chunk, this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL09("とる","ている（例文：電気がついとる）", "助動詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isAuxiliary(chunk, this.getDialect(), this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL10("どる","でいる（例文：雨が止んどる）", "助動詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isAuxiliary(chunk, this.getDialect(), this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL11("やん","じゃん（例文：べっぴんやん）", "助動詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isDL11(chunk, this.getNominal())){
+                    return true;
+                }
+            }
+            return false;
+        }
+    },
+    DL12("やんか","じゃないか（例文：ええやんか）", "終助詞") {
+        @Override
+        public Boolean isAnswer(String sentence) {
+            List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
+
+            for (ChunkType chunk : chunkList){
+                if (SpecialDialectHandler.isAuxiliary(chunk, this.getDialect(), this.getNominal())){
                     return true;
                 }
             }
