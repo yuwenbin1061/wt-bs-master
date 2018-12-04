@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50177339-7aef-49e2-9b15-456c153b3d0c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" afterDir="false" />
     </list>
@@ -107,8 +108,8 @@
       <file leaf-file-name="SpecialDialectHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="125" column="110" selection-start-line="125" selection-start-column="110" selection-end-line="125" selection-end-column="110" />
+            <state relative-caret-position="644">
+              <caret line="79" column="19" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,19 +117,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecialDialectEnum.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnswerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecialDialectEnum.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1825">
-              <caret line="73" column="17" lean-forward="true" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state relative-caret-position="283">
+              <caret line="142" column="47" lean-forward="true" selection-start-line="142" selection-start-column="11" selection-end-line="142" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#346#347#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#1504#1505#0" expanded="true" />
-                <element signature="e#1544#1545#0" expanded="true" />
-                <element signature="e#1749#1750#0" expanded="true" />
-                <element signature="e#1785#1786#0" expanded="true" />
+                <element signature="e#5818#5819#0" expanded="true" />
+                <element signature="e#5853#5854#0" expanded="true" />
+                <element signature="e#5891#5892#0" expanded="true" />
+                <element signature="e#5930#5931#0" expanded="true" />
+                <element signature="e#5964#5965#0" expanded="true" />
+                <element signature="e#5999#6000#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -242,15 +252,15 @@
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/AnswerDetialEntity.java" />
-        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answer.html" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/resources/xsd/parseResponse.xsd" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/xml/parseResponse/ResultType.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/specialDialect/ConstantDialectList.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialect.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/DialectService.java" />
-        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java" />
+        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" />
+        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" />
       </list>
     </option>
   </component>
@@ -820,7 +830,7 @@
       <workItem from="1543765830424" duration="3625000" />
       <workItem from="1543844851194" duration="900000" />
       <workItem from="1543848952352" duration="5377000" />
-      <workItem from="1543934304137" duration="14436000" />
+      <workItem from="1543934304137" duration="18466000" />
     </task>
     <task id="LOCAL-00001" summary="css样式切换">
       <created>1535958460451</created>
@@ -1109,11 +1119,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543948598997</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="前六个判断">
+      <created>1543950605476</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1543950605477</updated>
+    </task>
+    <task id="LOCAL-00043" summary="12个判断">
+      <created>1543951584506</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1543951584506</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250418000" />
+    <option name="totallyTimeSpent" value="254448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1135,8 +1159,8 @@
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32901832" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.35607675" weight="0.18338726" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.51865673" visible="true" weight="0.30744338" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.35607675" visible="true" weight="0.18338726" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.51865673" weight="0.30744338" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32901832" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.122977346" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1705757" />
@@ -1172,8 +1196,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="common设计" />
-    <MESSAGE value="bootstrap-table引入" />
     <MESSAGE value="用户注册" />
     <MESSAGE value="问题列表查询" />
     <MESSAGE value="删除redis依赖" />
@@ -1197,7 +1219,9 @@
     <MESSAGE value="学生答案详细" />
     <MESSAGE value="增加汉族判断" />
     <MESSAGE value="特殊词判断" />
-    <option name="LAST_COMMIT_MESSAGE" value="特殊词判断" />
+    <MESSAGE value="前六个判断" />
+    <MESSAGE value="12个判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="12个判断" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1261,20 +1285,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/criteria/PapersCriteria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/domain/entity/PapersEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/papers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
@@ -1536,13 +1546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="142" column="45" lean-forward="true" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1581,29 +1584,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="125" column="110" selection-start-line="125" selection-start-column="110" selection-end-line="125" selection-end-column="110" />
+        <state relative-caret-position="227">
+          <caret line="355" column="12" selection-start-line="355" selection-start-column="12" selection-end-line="355" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="2131" column="19" selection-start-line="2131" selection-start-column="19" selection-end-line="2131" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#82971#82972#0" expanded="true" />
+            <element signature="e#83020#83021#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1825">
-          <caret line="73" column="17" lean-forward="true" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        <state relative-caret-position="283">
+          <caret line="142" column="47" lean-forward="true" selection-start-line="142" selection-start-column="11" selection-end-line="142" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#1504#1505#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1749#1750#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#5853#5854#0" expanded="true" />
+            <element signature="e#5891#5892#0" expanded="true" />
+            <element signature="e#5930#5931#0" expanded="true" />
+            <element signature="e#5964#5965#0" expanded="true" />
+            <element signature="e#5999#6000#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="79" column="19" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
         </state>
       </provider>
     </entry>

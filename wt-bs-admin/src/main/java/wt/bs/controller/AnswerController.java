@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import wt.bs.common.SpecialDialectHandler;
 import wt.bs.controller.base.MgrBaseController;
 import wt.bs.domain.base.Page;
 import wt.bs.domain.criteria.AnswerCriteria;
@@ -62,7 +63,7 @@ public class AnswerController extends MgrBaseController {
     public BaseResult getList(AnswerCriteria criteria, Integer offset, Integer limit) {
         String identity = super.getIdentity();
         ProblemEntity problemEntity = problemService.selectOne(criteria.getProblemId());
-        if (problemEntity.getIsShow() == 0 && "2".equals(identity)){
+        if (problemEntity.getIsShow() == 0 && "2".equals(identity)) {
             StudentEntity studentEntity = studentService.selectOne(super.getUserId());
             criteria.setStudentCode(studentEntity.getCode());
         }
@@ -86,12 +87,12 @@ public class AnswerController extends MgrBaseController {
     public BaseResult save(String answer, Long problemId) {
         try {
             String identity = super.getIdentity();
-            if (!"2".equals(identity)){
+            if (!"2".equals(identity)) {
                 throw new BsException("教師はこの質問に回答できません");
             }
             StudentEntity studentEntity = studentService.selectOne(super.getUserId());
             AnswerEntity answerEntity = answerService.selectOne(studentEntity.getCode(), problemId);
-            if (answerEntity != null){
+            if (answerEntity != null) {
                 throw new BsException("回答するチャンスは一回だけです");
             }
             ProblemEntity problemEntity = problemService.selectOne(problemId);
@@ -112,34 +113,69 @@ public class AnswerController extends MgrBaseController {
 
             // 设置为题答案
             String answers = problemEntity.getAnswer();
+            // 答案
             List<String> answersList = new ArrayList<>(Arrays.asList(answers.split(",")));
-            List<String> answersListParams =  new ArrayList<>(Arrays.asList(answer.split(",")));
-            answersList.removeAll(answersListParams);
+            // 学生回答
+            List<String> answersListParams = new ArrayList<>(Arrays.asList(answer.split(",")));
+            List<String> doingAnswerList = new ArrayList<>();
+            List<String> doneAnswerList = new ArrayList<>();
+            List<String> failAnswerList = new ArrayList<>();
+
+            // 取未回答答案
+            for (String exceptAnswer : answersList) {
+                boolean flag = true;
+                for (String realAnswer : answersListParams) {
+                    if (realAnswer.contains(exceptAnswer)) {
+                        flag = false;
+                        // 利用api判断答案是否正确
+                        if (SpecialDialectHandler.isDoneAnswer(problemEntity.getDescs(), realAnswer, exceptAnswer)) {
+                            doneAnswerList.add(exceptAnswer);
+                        }
+                        break;
+                    }
+                }
+
+                if (flag) {
+                    doingAnswerList.add(exceptAnswer);
+                }
+            }
+
+            // 取得回答错误答案
+            for (String realAnswer : answersListParams) {
+                boolean flag = true;
+                for (String exceptAnswer : answersList){
+                    if (realAnswer.contains(exceptAnswer)){
+                        // 利用api判断答案是否正确
+                        if (SpecialDialectHandler.isDoneAnswer(problemEntity.getDescs(), realAnswer, exceptAnswer)) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (flag){
+                    failAnswerList.add(realAnswer);
+                }
+            }
+
+
             saveAnswer.setDoingAnswer(StringUtils.join(answersList, ","));
-
-            List<String> answersList1 = new ArrayList<>(Arrays.asList(answers.split(",")));
-            List<String> answersListParams1 =  new ArrayList<>(Arrays.asList(answer.split(",")));
-            answersList1.retainAll(answersListParams1);
-            saveAnswer.setDoneAnswer(StringUtils.join(answersList1, ","));
-
-            List<String> answersList2 = new ArrayList<>(Arrays.asList(answers.split(",")));
-            List<String> answersListParams2 =  new ArrayList<>(Arrays.asList(answer.split(",")));
-            answersListParams2.removeAll(answersList2);
-            saveAnswer.setFailAnswer(StringUtils.join(answersListParams2, ","));
+            saveAnswer.setDoneAnswer(StringUtils.join(doneAnswerList, ","));
+            saveAnswer.setFailAnswer(StringUtils.join(failAnswerList, ","));
 
             // 设置分数
             Long score = 0L;
-            if (answer.equals(problemEntity.getAnswer())){
+            if (answer.equals(problemEntity.getAnswer())) {
                 score = problemEntity.getScore();
-            }else if (!org.springframework.util.StringUtils.isEmpty(saveAnswer.getDoneAnswer())){
+            } else if (!org.springframework.util.StringUtils.isEmpty(saveAnswer.getDoneAnswer())) {
                 score = problemEntity.getPartScore();
             }
             saveAnswer.setCurrentScore(score);
             answerService.add(saveAnswer);
             return BaseResult.success(score);
-        }catch (BsException e){
+        } catch (BsException e) {
             return BaseResult.failure(e.getMsg());
-        }catch (Exception e){
+        } catch (Exception e) {
             return BaseResult.failure("エラー");
         }
     }
