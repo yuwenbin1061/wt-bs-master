@@ -93,7 +93,7 @@ public class SpecialDialectHandler {
      */
     public static boolean isAuxiliary(ChunkType chunk, String dialect, String nominal) {
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals(dialect) && morphem.getPOS().equals(nominal)) {
+            if (morphem.getSurface().equals(dialect) && morphem.getFeature().contains(nominal)) {
                 return true;
             }
         }
@@ -106,7 +106,7 @@ public class SpecialDialectHandler {
     public static boolean isDL03(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("せ") && morphem.getPOS().equals(nominal)) {
+            if (morphem.getSurface().equals("せ") && morphem.getFeature().contains(nominal)) {
                 if ((index + 1) < chunk.getMorphemList().getMorphem().size()
                         && chunk.getMorphemList().getMorphem().get(index + 1).getSurface().equals("ん")) {
                     return true;
@@ -123,7 +123,7 @@ public class SpecialDialectHandler {
     public static boolean isDL04(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("や") && morphem.getPOS().equals(nominal)) {
+            if (morphem.getSurface().equals("や") && morphem.getFeature().contains(nominal)) {
                 if ((index - 1) >= 0 && chunk.getMorphemList().getMorphem().get(index - 1).getSurface().equals("て")) {
                     return true;
                 }
@@ -139,11 +139,10 @@ public class SpecialDialectHandler {
     public static boolean isDL05(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("や") && morphem.getPOS().equals(nominal)) {
+            if (morphem.getSurface().equals("や") && morphem.getFeature().contains(nominal)) {
                 if ((index - 1) >= 0
                         && (index + 1) < chunk.getMorphemList().getMorphem().size()
-                        && !chunk.getMorphemList().getMorphem().get(index - 1).getSurface().equals("て")
-                        && chunk.getMorphemList().getMorphem().get(index + 1).getPOS().equals("特殊")) {
+                        && !chunk.getMorphemList().getMorphem().get(index - 1).getSurface().equals("て")) {
                     return true;
                 }
             }
@@ -158,25 +157,8 @@ public class SpecialDialectHandler {
     public static boolean isDL06(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("はる") && morphem.getPOS().equals(nominal)) {
-                if ((index - 1) >= 0 && chunk.getMorphemList().getMorphem().get(index - 1).getPOS().equals("動詞")) {
-                    return true;
-                }
-            }
-            index++;
-        }
-        return false;
-    }
-
-    /**
-     * 判断DL08：ん
-     */
-    public static boolean isDL08(ChunkType chunk, String nominal) {
-        int index = 0;
-        for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("ん") && morphem.getPOS().equals(nominal)) {
-                if ((index + 1) < chunk.getMorphemList().getMorphem().size()
-                        && chunk.getMorphemList().getMorphem().get(index + 1).getPOS().equals("特殊")) {
+            if (morphem.getSurface().equals("はる") && morphem.getFeature().contains(nominal)) {
+                if ((index - 1) >= 0 && chunk.getMorphemList().getMorphem().get(index - 1).getFeature().contains("動詞")) {
                     return true;
                 }
             }
@@ -191,9 +173,9 @@ public class SpecialDialectHandler {
     public static boolean isDL11(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("やん") && morphem.getPOS().equals(nominal)) {
+            if (morphem.getSurface().equals("やん") && morphem.getFeature().contains(nominal)) {
                 if ((index + 1) < chunk.getMorphemList().getMorphem().size()) {
-                    if (!chunk.getMorphemList().getMorphem().get(index + 1).getSurface().equals("か")) {
+                    if (!chunk.getMorphemList().getMorphem().get(index + 1).getFeature().contains("特殊")) {
                         return true;
                     }
                 } else {

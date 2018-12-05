@@ -57,7 +57,7 @@ public enum SpecialDialectEnum {
             return false;
         }
     },
-    DL05("や", "だ（例文：そうや）", "終助詞") {
+    DL05("や", "だ（例文：明日東京に行くんや）", "終助詞") {
         @Override
         public Boolean isAnswer(String sentence) {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
@@ -70,7 +70,7 @@ public enum SpecialDialectEnum {
             return false;
         }
     },
-    DL06("はる", "尊敬の表現（例文：先生が食べはる）", "動詞") {
+    DL06("はる", "なさる（例文：先生が食べはる）", "動詞") {
         @Override
         public Boolean isAnswer(String sentence) {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
@@ -96,13 +96,13 @@ public enum SpecialDialectEnum {
             return false;
         }
     },
-    DL08("ん", "の（例文：何なん、どうしたん）", "助動詞") {
+    DL08("ん", "ない（例文：分からん）", "助動詞") {
         @Override
         public Boolean isAnswer(String sentence) {
             List<ChunkType> chunkList = SpecialDialectHandler.sentenceAnalysis(sentence);
 
             for (ChunkType chunk : chunkList) {
-                if (SpecialDialectHandler.isDL08(chunk, this.getNominal())) {
+                if (SpecialDialectHandler.isAuxiliary(chunk, this.getDialect(), this.getNominal())) {
                     return true;
                 }
             }
