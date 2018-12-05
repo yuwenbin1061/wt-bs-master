@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50177339-7aef-49e2-9b15-456c153b3d0c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answerAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answerAdd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -109,11 +106,38 @@
       <file leaf-file-name="SpecialDialectHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1750">
-              <caret line="79" column="19" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="19" />
+            <state relative-caret-position="407">
+              <caret line="182" column="17" lean-forward="true" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecialDialectEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1800">
+              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5818#5819#0" expanded="true" />
+                <element signature="e#5853#5854#0" expanded="true" />
+                <element signature="e#5891#5892#0" expanded="true" />
+                <element signature="e#5930#5931#0" expanded="true" />
+                <element signature="e#5964#5965#0" expanded="true" />
+                <element signature="e#5999#6000#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap-table-ja-JP.min.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="6" column="250" selection-start-line="6" selection-start-column="250" selection-end-line="6" selection-end-column="250" />
             </state>
           </provider>
         </entry>
@@ -145,10 +169,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="problems.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="problems.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="268">
               <caret line="114" column="29" lean-forward="true" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
             </state>
           </provider>
@@ -181,24 +205,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecialDialectEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3500">
-              <caret line="142" column="47" selection-start-line="142" selection-start-column="11" selection-end-line="142" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5818#5819#0" expanded="true" />
-                <element signature="e#5853#5854#0" expanded="true" />
-                <element signature="e#5891#5892#0" expanded="true" />
-                <element signature="e#5930#5931#0" expanded="true" />
-                <element signature="e#5964#5965#0" expanded="true" />
-                <element signature="e#5999#6000#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -214,7 +220,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>am-fr</find>
       <find>datatables</find>
       <find>content</find>
       <find>report.js</find>
@@ -244,6 +249,7 @@
       <find>text</find>
       <find>RestTemplate</find>
       <find>x-www-form-urlencoded</find>
+      <find>getPOS().equals</find>
     </findStrings>
     <replaceStrings>
       <replace>`level`</replace>
@@ -251,6 +257,7 @@
       <replace>descs</replace>
       <replace>levels</replace>
       <replace>sysVersion</replace>
+      <replace>getFeature().contains</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/wt-bs-admin/src/main</dir>
@@ -299,7 +306,6 @@
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/ProblemController.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/problem.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/papers.js" />
-        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/common/common.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/index.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/css/app.css" />
@@ -310,12 +316,13 @@
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/specialDialect/ConstantDialectList.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialect.java" />
         <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/service/example/DialectService.java" />
-        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java" />
-        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/java/wt/bs/controller/AnswerController.java" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/answer.js" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/templates/view/answerAdd.html" />
         <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js" />
+        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java" />
+        <option value="$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java" />
+        <option value="$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js" />
       </list>
     </option>
   </component>
@@ -486,6 +493,39 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wt-bs-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wt-bs-master" type="462c0819:PsiDirectoryNode" />
+              <item name="wt-bs-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wt-bs-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wt-bs-master" type="462c0819:PsiDirectoryNode" />
+              <item name="wt-bs-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wt-bs-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wt-bs-master" type="462c0819:PsiDirectoryNode" />
+              <item name="wt-bs-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wt-bs-master" type="b2602c69:ProjectViewProjectNode" />
@@ -886,7 +926,7 @@
       <workItem from="1543844851194" duration="900000" />
       <workItem from="1543848952352" duration="5377000" />
       <workItem from="1543934304137" duration="18636000" />
-      <workItem from="1543976590758" duration="1470000" />
+      <workItem from="1543976590758" duration="2464000" />
     </task>
     <task id="LOCAL-00001" summary="css样式切换">
       <created>1535958460451</created>
@@ -1203,11 +1243,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543954872103</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="问题3 bug解决 问题6">
+      <created>1543978216713</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1543978216713</updated>
+    </task>
+    <task id="LOCAL-00047" summary="问题1">
+      <created>1543979020736</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1543979020736</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256088000" />
+    <option name="totallyTimeSpent" value="257082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1223,18 +1277,18 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" visible="true" weight="0.2351672" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" weight="0.2351672" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946696" weight="0.46601942" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32901832" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.35607675" weight="0.18338726" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.35607675" visible="true" weight="0.18338726" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.51865673" weight="0.30744338" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32901832" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.122977346" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17217484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26705757" />
       <window_info anchor="bottom" id="Problems" order="14" weight="0.32901832" />
       <window_info anchor="right" id="Bean Validation" order="10" />
       <window_info id="Web" order="7" side_tool="true" />
@@ -1267,8 +1321,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="问题列表查询" />
-    <MESSAGE value="删除redis依赖" />
     <MESSAGE value="问题添加依赖" />
     <MESSAGE value="问题添加" />
     <MESSAGE value="前端样式优化" />
@@ -1292,7 +1344,9 @@
     <MESSAGE value="前六个判断" />
     <MESSAGE value="12个判断" />
     <MESSAGE value="学生回答判断修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="学生回答判断修改" />
+    <MESSAGE value="问题3 bug解决 问题6" />
+    <MESSAGE value="问题1" />
+    <option name="LAST_COMMIT_MESSAGE" value="问题1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1388,13 +1442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="636" selection-start-line="6" selection-start-column="636" selection-end-line="6" selection-end-column="636" />
         </state>
       </provider>
     </entry>
@@ -1607,6 +1654,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2575">
           <caret line="103" column="113" selection-start-line="103" selection-start-column="113" selection-end-line="103" selection-end-column="113" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1624,32 +1674,6 @@
           <folding>
             <element signature="e#82971#82972#0" expanded="true" />
             <element signature="e#83020#83021#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3500">
-          <caret line="142" column="47" selection-start-line="142" selection-start-column="11" selection-end-line="142" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5818#5819#0" expanded="true" />
-            <element signature="e#5853#5854#0" expanded="true" />
-            <element signature="e#5891#5892#0" expanded="true" />
-            <element signature="e#5930#5931#0" expanded="true" />
-            <element signature="e#5964#5965#0" expanded="true" />
-            <element signature="e#5999#6000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1750">
-          <caret line="79" column="19" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1698,8 +1722,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/js/problems.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="268">
           <caret line="114" column="29" lean-forward="true" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="182" column="17" lean-forward="true" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-service/src/main/java/wt/bs/common/SpecialDialectEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#5853#5854#0" expanded="true" />
+            <element signature="e#5891#5892#0" expanded="true" />
+            <element signature="e#5930#5931#0" expanded="true" />
+            <element signature="e#5964#5965#0" expanded="true" />
+            <element signature="e#5999#6000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wt-bs-admin/src/main/resources/static/assets/js/bootstrap/bootstrap-table-ja-JP.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="6" column="250" selection-start-line="6" selection-start-column="250" selection-end-line="6" selection-end-column="250" />
         </state>
       </provider>
     </entry>
