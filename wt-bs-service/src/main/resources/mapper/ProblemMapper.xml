@@ -17,6 +17,7 @@
 			part_score AS partScore,
 			is_show AS isShow,
 			yn AS yn,
+			answered AS answered,
 			sysVersion AS sysVersion,
 			create_time AS createTime,
 			update_time AS updateTime,
@@ -249,6 +250,9 @@
     	<if test="yn != null">
             yn = #{yn,jdbcType=TINYINT},
     	</if>
+		<if test="answered != null">
+			answered = #{answered,jdbcType=TINYINT},
+		</if>
     	<if test="sysVersion != null">
             sysVersion = #{sysVersion,jdbcType=BIGINT},
     	</if>
@@ -298,6 +302,9 @@
 		</if>
 		<if test="item.yn != null">
 			yn = #{item.yn,jdbcType=TINYINT},
+		</if>
+		<if test="item.answered != null">
+			answered = #{item.answered,jdbcType=TINYINT},
 		</if>
 		<if test="item.sysVersion != null">
 			sysVersion = #{item.sysVersion,jdbcType=BIGINT},

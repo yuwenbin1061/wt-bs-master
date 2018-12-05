@@ -48,7 +48,7 @@ function initTable() {
                 }
             },
             {
-                field: 'id',
+                field: 'answered',
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
@@ -60,9 +60,12 @@ function initTable() {
 
                     var identity = $("#identity").val();
                     if(identity == 2){
-                        return  sAnswer + "  " + answer;
+                        if (value == 1){
+                            return  sAnswer;
+                        } else
+                            return answer;
                     }
-                    return isShow + "  " + sAnswer + "  " + answer;
+                    return isShow + "  " + sAnswer;
                 }
             }
         ]

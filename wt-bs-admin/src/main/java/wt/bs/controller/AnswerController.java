@@ -175,6 +175,8 @@ public class AnswerController extends MgrBaseController {
             }
             saveAnswer.setCurrentScore(score);
             answerService.add(saveAnswer);
+            problemEntity.setAnswered(1);
+            problemService.update(problemEntity);
             return BaseResult.success(score);
         } catch (BsException e) {
             return BaseResult.failure(e.getMsg());
