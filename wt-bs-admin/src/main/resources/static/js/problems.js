@@ -112,7 +112,7 @@ function addProblem() {
                 alert("成功");
                 window.location.href ="/problems/add?batchNo=" + data.msg+"&paperName="+$('#paper-name').val();
             }else{
-                alert("失敗");
+                alert("必ず回答用紙名とテキストを入力してください！");
             }
         }
     });

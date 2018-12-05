@@ -81,6 +81,7 @@ public class AnswerController extends MgrBaseController {
         view.addObject("problemId", id);
         view.addObject("identity", super.getIdentity());
         view.addObject("descs", entity.getDescs());
+        view.addObject("batchNo",entity.getBatchNo());
         return view;
     }
 

@@ -111,8 +111,9 @@ function addProblem() {
         url: "/answer/save",
         success: function (data) {
             if (data.code == '0000') {
+                var problemId = $("#batchNo").val();
                 alert("解答が保存されました！");
-                window.location.href = "/problems/list";
+                window.location.href = "/problems/list?batchNo=" + problemId;
             } else {
                 alert(data.msg);
             }

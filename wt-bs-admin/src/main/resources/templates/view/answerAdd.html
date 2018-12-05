@@ -17,6 +17,7 @@
                 <span class="tpl-login-content-info">
               </span>
                 <form class="am-form tpl-form-line-form" id="answerFrom">
+                    <input type="hidden" class="tpl-form-input" name="batchNo" id="batchNo" th:value="${batchNo}" hidden>
                     <input type="hidden" class="tpl-form-input" name="problemId" id="problemId" th:value="${problemId}" hidden>
                     <input type="text" class="tpl-form-input" name="descs" id="descs" th:value="${descs}" disabled>
                     <div class="am-form-group">
