@@ -173,7 +173,7 @@ public class SpecialDialectHandler {
     public static boolean isDL11(ChunkType chunk, String nominal) {
         int index = 0;
         for (MorphemType morphem : chunk.getMorphemList().getMorphem()) {
-            if (morphem.getSurface().equals("やん") && morphem.getFeature().contains(nominal)) {
+            if (morphem.getSurface().equals("やん")) {
                 if ((index + 1) < chunk.getMorphemList().getMorphem().size()) {
                     if (!chunk.getMorphemList().getMorphem().get(index + 1).getFeature().contains("特殊")) {
                         return true;
