@@ -78,7 +78,7 @@ public class DialectService {
                     isSpecial = true;
                     AnswerDetialEntity answerDetial = new AnswerDetialEntity();
                     answerDetial.setDialect(dialectTarget.getDialect());
-                    answerDetial.setKanji(null);
+                    answerDetial.setKanji(dialectTarget.getDialect());
                     answerDetial.setNominal(dialectTarget.getNominal());
                     answerDetial.setTranslation(dialectTarget.getTranslation());
                     resultList.add(answerDetial);
