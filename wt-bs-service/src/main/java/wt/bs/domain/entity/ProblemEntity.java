@@ -46,5 +46,5 @@ public class ProblemEntity extends BaseEntityBean {
 	 * 是否已回答
 	 * 0: 未回答，1 : 已回答
 	 */
-	private Integer answered;
+	private String answered;
 }

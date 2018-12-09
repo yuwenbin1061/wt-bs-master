@@ -175,7 +175,7 @@ public class AnswerController extends MgrBaseController {
             }
             saveAnswer.setCurrentScore(score);
             answerService.add(saveAnswer);
-            problemEntity.setAnswered(1);
+            problemEntity.setAnswered(problemEntity.getAnswered().concat(","+ studentEntity.getCode()));
             problemService.update(problemEntity);
             return BaseResult.success(score);
         } catch (BsException e) {

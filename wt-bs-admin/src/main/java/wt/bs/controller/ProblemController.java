@@ -13,6 +13,7 @@ import wt.bs.domain.base.Page;
 import wt.bs.domain.criteria.ProblemCriteria;
 import wt.bs.domain.entity.PapersEntity;
 import wt.bs.domain.entity.ProblemEntity;
+import wt.bs.domain.entity.StudentEntity;
 import wt.bs.domain.entity.TeacherEntity;
 import wt.bs.exception.BsAssert;
 import wt.bs.exception.BsException;
@@ -21,6 +22,7 @@ import wt.bs.result.BaseResult;
 import wt.bs.service.example.DialectService;
 import wt.bs.service.example.PapersService;
 import wt.bs.service.example.ProblemService;
+import wt.bs.service.user.StudentService;
 import wt.bs.service.user.TeacherService;
 
 import java.util.Date;
@@ -34,6 +36,8 @@ public class ProblemController extends MgrBaseController{
     @Autowired
     private TeacherService teacherService;
     @Autowired
+    StudentService studentService;
+    @Autowired
     private PapersService  papersService;
     @Autowired
     private DialectService dialectService;
@@ -41,7 +45,12 @@ public class ProblemController extends MgrBaseController{
     @RequestMapping(value = "/problems/list")
     public ModelAndView list(String batchNo) {
         PapersEntity paper =  papersService.findBatchNo(batchNo);
+
         ModelAndView view = new ModelAndView("view/problem");
+        if (super.getIdentity().equals("2")) {
+            StudentEntity studentEntity = studentService.selectOne(super.getUserId());
+            view.addObject("studentCode", studentEntity.getCode());
+        }
         view.addObject("loginName", super.getUserName());
         view.addObject("identity", super.getIdentity());
         view.addObject("batchNo", batchNo);

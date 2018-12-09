@@ -59,8 +59,9 @@ function initTable() {
                     const sAnswer = '<a  href="/answer/list?id=' + id + '" class="am-btn am-btn-default am-btn-xs am-text-secondary"><i class="am-icon-pencil-square-o"></i>回答を見る</a>'
 
                     var identity = $("#identity").val();
+                    var studentCode = $("#studentCode").val();
                     if(identity == 2){
-                        if (value == 1){
+                        if (value.indexOf(studentCode) != -1){
                             return  sAnswer;
                         } else
                             return answer;
